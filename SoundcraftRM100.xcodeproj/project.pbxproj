@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EBAD6A9C1DFF0D80006F20DE /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAD6A9B1DFF0D80006F20DE /* AppleScriptObjC.framework */; };
+		EBAD6AA01DFF0D80006F20DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAD6A9F1DFF0D80006F20DE /* main.m */; };
+		EBAD6AA21DFF0D80006F20DE /* AppDelegate.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */; };
+		EBAD6AA41DFF0D80006F20DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */; };
+		EBAD6AA71DFF0D80006F20DE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBAD6AA51DFF0D80006F20DE /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EBAD6A981DFF0D80006F20DE /* SoundcraftRM100.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundcraftRM100.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBAD6A9B1DFF0D80006F20DE /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
+		EBAD6A9F1DFF0D80006F20DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = AppDelegate.applescript; sourceTree = "<group>"; };
+		EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBAD6AA61DFF0D80006F20DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EBAD6AA81DFF0D80006F20DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBAD6A951DFF0D80006F20DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBAD6A9C1DFF0D80006F20DE /* AppleScriptObjC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EBAD6A8F1DFF0D80006F20DE = {
+			isa = PBXGroup;
+			children = (
+				EBAD6A9D1DFF0D80006F20DE /* SoundcraftRM100 */,
+				EBAD6A9A1DFF0D80006F20DE /* Frameworks */,
+				EBAD6A991DFF0D80006F20DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EBAD6A991DFF0D80006F20DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD6A981DFF0D80006F20DE /* SoundcraftRM100.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBAD6A9A1DFF0D80006F20DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD6A9B1DFF0D80006F20DE /* AppleScriptObjC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBAD6A9D1DFF0D80006F20DE /* SoundcraftRM100 */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */,
+				EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */,
+				EBAD6AA51DFF0D80006F20DE /* MainMenu.xib */,
+				EBAD6AA81DFF0D80006F20DE /* Info.plist */,
+				EBAD6A9E1DFF0D80006F20DE /* Supporting Files */,
+			);
+			path = SoundcraftRM100;
+			sourceTree = "<group>";
+		};
+		EBAD6A9E1DFF0D80006F20DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD6A9F1DFF0D80006F20DE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EBAD6A971DFF0D80006F20DE /* SoundcraftRM100 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBAD6AAB1DFF0D80006F20DE /* Build configuration list for PBXNativeTarget "SoundcraftRM100" */;
+			buildPhases = (
+				EBAD6A941DFF0D80006F20DE /* Sources */,
+				EBAD6A951DFF0D80006F20DE /* Frameworks */,
+				EBAD6A961DFF0D80006F20DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundcraftRM100;
+			productName = SoundcraftRM100;
+			productReference = EBAD6A981DFF0D80006F20DE /* SoundcraftRM100.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBAD6A901DFF0D80006F20DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Thomas O'Harriedge";
+				TargetAttributes = {
+					EBAD6A971DFF0D80006F20DE = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EBAD6A931DFF0D80006F20DE /* Build configuration list for PBXProject "SoundcraftRM100" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EBAD6A8F1DFF0D80006F20DE;
+			productRefGroup = EBAD6A991DFF0D80006F20DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EBAD6A971DFF0D80006F20DE /* SoundcraftRM100 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EBAD6A961DFF0D80006F20DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBAD6AA41DFF0D80006F20DE /* Assets.xcassets in Resources */,
+				EBAD6AA71DFF0D80006F20DE /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EBAD6A941DFF0D80006F20DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBAD6AA21DFF0D80006F20DE /* AppDelegate.applescript in Sources */,
+				EBAD6AA01DFF0D80006F20DE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EBAD6AA51DFF0D80006F20DE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBAD6AA61DFF0D80006F20DE /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EBAD6AA91DFF0D80006F20DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EBAD6AAA1DFF0D80006F20DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EBAD6AAC1DFF0D80006F20DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SoundcraftRM100/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = harriedgestudio.SoundcraftRM100;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EBAD6AAD1DFF0D80006F20DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SoundcraftRM100/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = harriedgestudio.SoundcraftRM100;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EBAD6A931DFF0D80006F20DE /* Build configuration list for PBXProject "SoundcraftRM100" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBAD6AA91DFF0D80006F20DE /* Debug */,
+				EBAD6AAA1DFF0D80006F20DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBAD6AAB1DFF0D80006F20DE /* Build configuration list for PBXNativeTarget "SoundcraftRM100" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBAD6AAC1DFF0D80006F20DE /* Debug */,
+				EBAD6AAD1DFF0D80006F20DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBAD6A901DFF0D80006F20DE /* Project object */;
+}
