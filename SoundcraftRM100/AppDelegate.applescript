@@ -306,7 +306,8 @@ script AppDelegate
             tell PESAledOFF to setHidden_(0)
             tell PESAledON to setHidden_(1)
             else
-            log portPesa
+            tell PESAledOFF to setHidden_(0)
+            tell PESAledON to setHidden_(1)
         end if
     end pesaFromMSK_
     

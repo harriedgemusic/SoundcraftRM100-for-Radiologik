@@ -520,6 +520,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="pesaFromMSK:" target="Voe-Tx-rLC" id="cv5-dv-9xo"/>
+                                    </connections>
                                 </button>
                                 <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gs4-7p-fl7">
                                     <rect key="frame" x="166" y="20" width="107" height="17"/>
