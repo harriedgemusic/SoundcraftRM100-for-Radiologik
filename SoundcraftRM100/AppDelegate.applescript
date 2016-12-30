@@ -388,8 +388,8 @@ script AppDelegate
             tell PESAcaution to setHidden_(0)
             log "PESA's serial port is unavailable"
         else
-        set pesaCommand1FromMSK to "H00200600600600643" & return
-        set pesaCommand2FromMSK to "H00600600600600647" & return
+        set pesaCommand1FromMSK to "H00200600600600653" & return
+        set pesaCommand2FromMSK to "H00600600600600657" & return
         serialport write pesaCommand1FromMSK to portPesa
         delay 1
         serialport write pesaCommand2FromMSK to portPesa
