@@ -305,8 +305,10 @@ script AppDelegate
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
-            set pesaCommand1ToMSK to "H00800200200200249" & return
-            set pesaCommand2ToMSK to "H0020080080080085;" & return
+            set pesaCommand1ToMSK to "H00800200200200249
+" & return
+set pesaCommand2ToMSK to "H0020080080080085;
+" & return
             serialport write pesaCommand1ToMSK to portPesa
             delay 1
             serialport write pesaCommand2ToMSK to portPesa
@@ -364,8 +366,10 @@ script AppDelegate
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
-            set pesaCommand1FromMSK to "H00200200200200243" & return
-            set pesaCommand2FromMSK to "H00600200200200247" & return
+            set pesaCommand1FromMSK to "H00200200200200243
+" & return
+set pesaCommand2FromMSK to "H00600200200200247
+" & return
             serialport write pesaCommand1FromMSK to portPesa
             delay 1
             serialport write pesaCommand2FromMSK to portPesa
@@ -415,7 +419,8 @@ script AppDelegate
                     tell PESAcaution to setHidden_(0)
                     log "PESA's serial port is unavailable"
                 else
-                set pesaCommand3OffStream to "H00800400400400451" & return
+                set pesaCommand3OffStream to "H00800400400400451
+" & return
                 serialport write pesaCommand3OffStream to portPesa
                 delay 1
                 serialport close my portPesa
