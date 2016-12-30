@@ -29,6 +29,8 @@ script AppDelegate
     property labelNA2 : missing value
     property labelNA3 : missing value
     property labelNA4 : missing value
+    property PESAledON : missing value
+    property PESAledOFF : missing value
     property cts : 0
     property dcd : 0
     property dsr : 0
@@ -44,6 +46,7 @@ script AppDelegate
     property ricF : 0
     property myTimer1: missing value
     property portRef : 0
+    property portPesa : 0
 
     
     
@@ -270,6 +273,42 @@ script AppDelegate
         serialport close my portRef
     end portOff_
     
+    on pesaToMSK_(sender)
+        display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 2
+        if the button returned of the result is "YES" then
+            set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+            set pesaCommand1ToMSK to "H00800200200200249" & return
+            set pesaCommand2ToMSK to "H0020080080080085;" & return
+            serialport write pesaCommand1ToMSK to portPesa
+            delay 1
+            serialport write pesaCommand2ToMSK to portPesa
+            delay 1
+            serialport close my portPesa
+            tell PESAledOFF to setHidden_(1)
+            tell PESAledON to setHidden_(0)
+        else
+        tell PESAledOFF to setHidden_(0)
+        tell PESAledON to setHidden_(1)
+    end if
+    end pesaToMSK_
+    
+    on pesaFromMSK_(sender)
+        display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 2
+        if the button returned of the result is "YES" then
+            set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+            set pesaCommand1FromMSK to "H00200200200200243" & return
+            set pesaCommand2FromMSK to "H00600200200200247" & return
+            serialport write pesaCommand1FromMSK to portPesa
+            delay 1
+            serialport write pesaCommand2FromMSK to portPesa
+            delay 1
+            serialport close my portPesa
+            tell PESAledOFF to setHidden_(0)
+            tell PESAledON to setHidden_(1)
+            else
+            log portPesa
+        end if
+    end pesaFromMSK_
     
     on applicationShouldTerminate:sender
         -- Insert code here to do any housekeeping before your application quits

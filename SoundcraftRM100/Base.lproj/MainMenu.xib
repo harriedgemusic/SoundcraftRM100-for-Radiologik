@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1212" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="PESAledOFF" destination="2fR-8C-LnS" id="oow-Gm-2fB"/>
+                <outlet property="PESAledON" destination="Gs4-7p-fl7" id="MwN-Dl-Qnj"/>
                 <outlet property="cautionIcon" destination="wTu-Uj-ZSD" id="Qn5-yt-gO2"/>
                 <outlet property="cautionText" destination="0qC-4T-vEu" id="Ll9-7j-jqM"/>
                 <outlet property="labelActive1" destination="VPM-Rr-CPJ" id="Vp1-WZ-KIe"/>
@@ -221,11 +224,11 @@
             </items>
             <point key="canvasLocation" x="146" y="-223"/>
         </menu>
-        <window title="Soundcraft RM100 Controller 0.3-beta" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="Efg-tr-mdM">
+        <window title="Soundcraft RM100 Controller 0.43" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="Efg-tr-mdM">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
             <rect key="contentRect" x="1389" y="95" width="480" height="343"/>
-            <rect key="screenRect" x="1280" y="-97" width="1280" height="1001"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <value key="minSize" type="size" width="480" height="343"/>
             <value key="maxSize" type="size" width="480" height="343"/>
             <view key="contentView" id="TQI-mo-nV0">
@@ -486,7 +489,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qC-4T-vEu">
-                                    <rect key="frame" x="108" y="20" width="223" height="24"/>
+                                    <rect key="frame" x="108" y="50" width="223" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="center" title="CAN'T CONNECT TO RM-100!" id="bvR-Wb-Oty">
                                         <font key="font" metaFont="system"/>
@@ -495,10 +498,47 @@
                                     </textFieldCell>
                                 </textField>
                                 <imageView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wTu-Uj-ZSD">
-                                    <rect key="frame" x="194" y="52" width="50" height="47"/>
+                                    <rect key="frame" x="194" y="82" width="50" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="NSCaution" id="FAi-h1-vYR"/>
                                 </imageView>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ef-8W-QgI">
+                                    <rect key="frame" x="14" y="10" width="128" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="PESA MSK ON" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1PN-CS-aqz">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="pesaToMSK:" target="Voe-Tx-rLC" id="yfc-ij-22E"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UzK-ZZ-Qtt">
+                                    <rect key="frame" x="296" y="10" width="128" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="PESA MSK OFF" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2gC-ov-Jm7">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gs4-7p-fl7">
+                                    <rect key="frame" x="166" y="20" width="107" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PESA MSK IS ON" id="gck-Uk-4j9">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" red="0.10936446152740675" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fR-8C-LnS">
+                                    <rect key="frame" x="163" y="20" width="112" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PESA MSK IS OFF" id="IPc-pF-7wW">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" red="0.5" green="0.0" blue="0.061269827999102855" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
                         </view>
                         <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.019115691489361701" colorSpace="calibratedRGB"/>
