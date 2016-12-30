@@ -29,8 +29,10 @@ script AppDelegate
     property labelNA2 : missing value
     property labelNA3 : missing value
     property labelNA4 : missing value
-    property PESAledON : missing value
+    property PESAledON1 : missing value
+    property PESAledON2 : missing value
     property PESAledOFF : missing value
+    property PESAcaution : missing value
     property cts : 0
     property dcd : 0
     property dsr : 0
@@ -76,14 +78,15 @@ script AppDelegate
         tell labelNA2 to setHidden_(0)
         tell labelNA3 to setHidden_(0)
         tell labelNA4 to setHidden_(0)
-        
     end applicationWillFinishLaunching:
     
     
     on applicationDidFinishLaunching:aNotification
         set portRef to serialport open "/dev/cu.usbserial" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
         if portRef is -1 then
-            tell cautionIcon to setHidden_(0)
+            tell PESAledOFF to setHidden_(1)
+            tell PESAledON1 to setHidden_(1)
+            tell PESAledON2 to setHidden_(1)
             tell cautionText to setHidden_(0)
         end if
         set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething1:",missing value,true)
@@ -95,6 +98,10 @@ script AppDelegate
         tell labelInactive2 to setHidden_(0)
         tell labelInactive3 to setHidden_(0)
         tell labelInactive4 to setHidden_(0)
+        tell ledRed1 to setHidden_(0)
+        tell ledRed2 to setHidden_(0)
+        tell ledRed3 to setHidden_(0)
+        tell ledRed4 to setHidden_(0)
         log "The timers are starting."
         return
     end applicationDidFinishLaunching:
@@ -271,12 +278,26 @@ script AppDelegate
 
     on portOff_(sender)
         serialport close my portRef
+        tell PESAcaution to setHidden_(1)
+        tell PESAledOFF to setHidden_(1)
+        tell PESAledON1 to setHidden_(1)
+        tell PESAledON2 to setHidden_(1)
+        tell cautionText to setHidden_(0)
     end portOff_
     
     on pesaToMSK_(sender)
         display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 2
-        if the button returned of the result is "YES" then
+        set x to button returned of result
+        if x is "YES" then
             set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+            if portPesa is -1 then
+                tell PESAledOFF to setHidden_(1)
+                tell PESAledON1 to setHidden_(1)
+                tell PESAledON2 to setHidden_(1)
+                tell cautionText to setHidden_(1)
+                tell PESAcaution to setHidden_(0)
+                log "PESA's serial port is unavailable"
+            else
             set pesaCommand1ToMSK to "H00800200200200249" & return
             set pesaCommand2ToMSK to "H0020080080080085;" & return
             serialport write pesaCommand1ToMSK to portPesa
@@ -285,17 +306,55 @@ script AppDelegate
             delay 1
             serialport close my portPesa
             tell PESAledOFF to setHidden_(1)
-            tell PESAledON to setHidden_(0)
-        else
-        tell PESAledOFF to setHidden_(0)
-        tell PESAledON to setHidden_(1)
-    end if
+            tell PESAledON2 to setHidden_(1)
+            tell PESAledON1 to setHidden_(0)
+            end if
+        end if
+        if x is "NO" then
+            log x
+        end if
     end pesaToMSK_
     
-    on pesaFromMSK_(sender)
+    on pesaToMSK2_(sender)
         display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 2
-        if the button returned of the result is "YES" then
+        set x to button returned of result
+        if x is "YES" then
             set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+            if portPesa is -1 then
+                tell PESAledOFF to setHidden_(1)
+                tell PESAledON1 to setHidden_(1)
+                tell PESAledON2 to setHidden_(1)
+                tell cautionText to setHidden_(1)
+                tell PESAcaution to setHidden_(0)
+                log "PESA's serial port is unavailable"
+            else
+            set pesaCommand1ToMSK to "H00800600600600659" & return
+            set pesaCommand2ToMSK to "H0020080080080085;" & return
+            serialport write pesaCommand1ToMSK to portPesa
+            delay 1
+            serialport write pesaCommand2ToMSK to portPesa
+            delay 1
+            serialport close my portPesa
+            tell PESAledOFF to setHidden_(1)
+            tell PESAledON1 to setHidden_(1)
+            tell PESAledON2 to setHidden_(0)
+            end if
+        end if
+        if x is "NO" then
+            log x
+        end if
+    end pesaToMSK2_
+    
+    on pesaFromMSK_(sender)
+            set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+            if portPesa is -1 then
+                tell PESAledOFF to setHidden_(1)
+                tell PESAledON1 to setHidden_(1)
+                tell PESAledON2 to setHidden_(1)
+                tell cautionText to setHidden_(1)
+                tell PESAcaution to setHidden_(0)
+                log "PESA's serial port is unavailable"
+            else
             set pesaCommand1FromMSK to "H00200200200200243" & return
             set pesaCommand2FromMSK to "H00600200200200247" & return
             serialport write pesaCommand1FromMSK to portPesa
@@ -303,13 +362,61 @@ script AppDelegate
             serialport write pesaCommand2FromMSK to portPesa
             delay 1
             serialport close my portPesa
+            tell PESAledON1 to setHidden_(1)
+            tell PESAledON2 to setHidden_(1)
             tell PESAledOFF to setHidden_(0)
-            tell PESAledON to setHidden_(1)
-            else
-            tell PESAledOFF to setHidden_(0)
-            tell PESAledON to setHidden_(1)
-        end if
+            end if
     end pesaFromMSK_
+    
+    on pesaFromMSK2_(sender)
+        set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+        if portPesa is -1 then
+            tell PESAledOFF to setHidden_(1)
+            tell PESAledON1 to setHidden_(1)
+            tell PESAledON2 to setHidden_(1)
+            tell cautionText to setHidden_(1)
+            tell PESAcaution to setHidden_(0)
+            log "PESA's serial port is unavailable"
+        else
+        set pesaCommand1FromMSK to "H00200600600600643" & return
+        set pesaCommand2FromMSK to "H00600600600600647" & return
+        serialport write pesaCommand1FromMSK to portPesa
+        delay 1
+        serialport write pesaCommand2FromMSK to portPesa
+        delay 1
+        serialport close my portPesa
+        tell PESAledON2 to setHidden_(1)
+        tell PESAledON1 to setHidden_(1)
+        tell PESAledOFF to setHidden_(0)
+        end if
+    end pesaFromMSK2_
+    
+    on pesaOffbutton_(sender)
+            display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 1
+            set x to button returned of result
+            if x is "YES" then
+                set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+                if portPesa is -1 then
+                    tell PESAledOFF to setHidden_(1)
+                    tell PESAledON1 to setHidden_(1)
+                    tell PESAledON2 to setHidden_(1)
+                    tell cautionText to setHidden_(1)
+                    tell PESAcaution to setHidden_(0)
+                    log "PESA's serial port is unavailable"
+                else
+                set pesaCommand3OffStream to "H00800400400400451" & return
+                serialport write pesaCommand3OffStream to portPesa
+                delay 1
+                serialport close my portPesa
+                tell PESAledON1 to setHidden_(1)
+                tell PESAledON2 to setHidden_(1)
+                tell PESAledOFF to setHidden_(0)
+                end if
+            end if
+            if x is "NO" then
+                tell PESAledOFF to setHidden_(1)
+            end if
+    end pesaOffbutton_
     
     on applicationShouldTerminate:sender
         -- Insert code here to do any housekeeping before your application quits
