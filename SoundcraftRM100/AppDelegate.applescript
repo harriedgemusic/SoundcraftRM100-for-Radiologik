@@ -33,6 +33,7 @@ script AppDelegate
     property PESAledON2 : missing value
     property PESAledOFF : missing value
     property PESAcaution : missing value
+    property PortClosedLabel : missing value
     property cts : 0
     property dcd : 0
     property dsr : 0
@@ -90,6 +91,7 @@ script AppDelegate
             tell cautionText to setHidden_(0)
         end if
         set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething1:",missing value,true)
+        tell PortClosedLabel to setHidden_(1)
         tell labelNA1 to setHidden_(1)
         tell labelNA2 to setHidden_(1)
         tell labelNA3 to setHidden_(1)
@@ -277,12 +279,17 @@ script AppDelegate
     end doSomething1_
 
     on portOff_(sender)
+        if portRef is -1 then
+            tell cautionText to setHidden_(0)
+        else
         serialport close my portRef
         tell PESAcaution to setHidden_(1)
         tell PESAledOFF to setHidden_(1)
         tell PESAledON1 to setHidden_(1)
         tell PESAledON2 to setHidden_(1)
-        tell cautionText to setHidden_(0)
+        tell cautionText to setHidden_(1)
+        tell PortClosedLabel to setHidden_(0)
+        end if
     end portOff_
     
     on pesaToMSK_(sender)
@@ -305,6 +312,7 @@ script AppDelegate
             serialport write pesaCommand2ToMSK to portPesa
             delay 1
             serialport close my portPesa
+            tell PortClosedLabel to setHidden_(1)
             tell PESAledOFF to setHidden_(1)
             tell PESAledON2 to setHidden_(1)
             tell PESAledON1 to setHidden_(0)
@@ -335,6 +343,7 @@ script AppDelegate
             serialport write pesaCommand2ToMSK to portPesa
             delay 1
             serialport close my portPesa
+            tell PortClosedLabel to setHidden_(1)
             tell PESAledOFF to setHidden_(1)
             tell PESAledON1 to setHidden_(1)
             tell PESAledON2 to setHidden_(0)
@@ -362,6 +371,7 @@ script AppDelegate
             serialport write pesaCommand2FromMSK to portPesa
             delay 1
             serialport close my portPesa
+            tell PortClosedLabel to setHidden_(1)
             tell PESAledON1 to setHidden_(1)
             tell PESAledON2 to setHidden_(1)
             tell PESAledOFF to setHidden_(0)
@@ -385,6 +395,7 @@ script AppDelegate
         serialport write pesaCommand2FromMSK to portPesa
         delay 1
         serialport close my portPesa
+        tell PortClosedLabel to setHidden_(1)
         tell PESAledON2 to setHidden_(1)
         tell PESAledON1 to setHidden_(1)
         tell PESAledOFF to setHidden_(0)
@@ -408,6 +419,7 @@ script AppDelegate
                 serialport write pesaCommand3OffStream to portPesa
                 delay 1
                 serialport close my portPesa
+                tell PortClosedLabel to setHidden_(1)
                 tell PESAledON1 to setHidden_(1)
                 tell PESAledON2 to setHidden_(1)
                 tell PESAledOFF to setHidden_(0)
