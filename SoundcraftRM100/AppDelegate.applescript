@@ -50,6 +50,7 @@ script AppDelegate
     property myTimer1: missing value
     property portRef : 0
     property portPesa : 0
+    property file1 : "SoundcraftRM100:list1.apls"
 
     
     
@@ -88,10 +89,12 @@ script AppDelegate
             tell PESAledOFF to setHidden_(1)
             tell PESAledON1 to setHidden_(1)
             tell PESAledON2 to setHidden_(1)
+            tell PESAcaution to setHidden_(1)
             tell cautionText to setHidden_(0)
         end if
         set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething1:",missing value,true)
         tell PortClosedLabel to setHidden_(1)
+        tell PESAcaution to setHidden_(1)
         tell labelNA1 to setHidden_(1)
         tell labelNA2 to setHidden_(1)
         tell labelNA3 to setHidden_(1)
@@ -172,7 +175,7 @@ script AppDelegate
         end if
         
         if cnt = 1 then
-            tell application "System Events" to click button 4 of group 1 of window "1 - PLAYLIST.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 4 of group 1 of window "list1.apls" of process "OnTheAir Studio"
             set cntF to 0
             tell ledNone1 to setHidden_(1)
             tell ledRed1 to setHidden_(1)
@@ -185,7 +188,7 @@ script AppDelegate
         end if
         
         if cntF = 1 then
-            tell application "System Events" to click button 2 of group 1 of window "1 - PLAYLIST.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 2 of group 1 of window "list1.apls" of process "OnTheAir Studio"
             set cnt to 0
             tell ledNone1 to setHidden_(1)
             tell ledGreen1 to setHidden_(1)
@@ -198,7 +201,7 @@ script AppDelegate
         end if
         
         if dcdc = 1 then
-            tell application "System Events" to click button 4 of group 1 of window "2 - SINGLE FILE.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 4 of group 1 of window "list2.apls" of process "OnTheAir Studio"
             set dcdcF to 0
             tell ledNone2 to setHidden_(1)
             tell ledRed2 to setHidden_(1)
@@ -211,7 +214,7 @@ script AppDelegate
         end if
         
         if dcdcF = 1 then
-            tell application "System Events" to click button 2 of group 1 of window "2 - SINGLE FILE.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 2 of group 1 of window "list2.apls" of process "OnTheAir Studio"
             set dcdc to 0
             tell ledNone2 to setHidden_(1)
             tell ledGreen2 to setHidden_(1)
@@ -224,7 +227,7 @@ script AppDelegate
         end if
         
         if dsrc = 1 then
-            tell application "System Events" to click button 4 of group 1 of window "3 - SINGLE FILE.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 4 of group 1 of window "list3.apls" of process "OnTheAir Studio"
             set dsrcF to 0
             tell ledNone3 to setHidden_(1)
             tell ledRed3 to setHidden_(1)
@@ -237,7 +240,7 @@ script AppDelegate
         end if
         
         if dsrcF = 1 then
-            tell application "System Events" to click button 2 of group 1 of window "3 - SINGLE FILE.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 2 of group 1 of window "list3.apls" of process "OnTheAir Studio"
             set dsrc to 0
             tell ledNone3 to setHidden_(1)
             tell ledGreen3 to setHidden_(1)
@@ -250,7 +253,7 @@ script AppDelegate
         end if
         
         if ric = 1 then
-            tell application "System Events" to click button 4 of group 1 of window "4 - BACKGROUND.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 4 of group 1 of window "list4.apls" of process "OnTheAir Studio"
             set ricF to 0
             tell ledNone4 to setHidden_(1)
             tell ledRed4 to setHidden_(1)
@@ -263,7 +266,7 @@ script AppDelegate
         end if
         
         if ricF = 1 then
-            tell application "System Events" to click button 2 of group 1 of window "4 - BACKGROUND.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 2 of group 1 of window "list4.apls" of process "OnTheAir Studio"
             set ric to 0
             tell ledNone4 to setHidden_(1)
             tell ledGreen4 to setHidden_(1)
@@ -280,7 +283,9 @@ script AppDelegate
 
     on portOff_(sender)
         if portRef is -1 then
+            tell PESAcaution to setHidden_(1)
             tell cautionText to setHidden_(0)
+            
         else
         serialport close my portRef
         tell PESAcaution to setHidden_(1)
@@ -302,6 +307,7 @@ script AppDelegate
                 tell PESAledON1 to setHidden_(1)
                 tell PESAledON2 to setHidden_(1)
                 tell cautionText to setHidden_(1)
+                tell PortClosedLabel to setHidden_(1)
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
@@ -309,10 +315,8 @@ script AppDelegate
             set pesaCommand2ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
             serialport write pesaCommand1ToMSK to portPesa
             delay 2
-            log pesaCommand1ToMSK
             serialport write pesaCommand2ToMSK to portPesa
             delay 2
-            log pesaCommand2ToMSK
             serialport close my portPesa
             tell PortClosedLabel to setHidden_(1)
             tell PESAledOFF to setHidden_(1)
@@ -335,6 +339,7 @@ script AppDelegate
                 tell PESAledON1 to setHidden_(1)
                 tell PESAledON2 to setHidden_(1)
                 tell cautionText to setHidden_(1)
+                tell PortClosedLabel to setHidden_(1)
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
@@ -363,6 +368,7 @@ script AppDelegate
                 tell PESAledON1 to setHidden_(1)
                 tell PESAledON2 to setHidden_(1)
                 tell cautionText to setHidden_(1)
+                tell PortClosedLabel to setHidden_(1)
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
@@ -387,6 +393,7 @@ script AppDelegate
             tell PESAledON1 to setHidden_(1)
             tell PESAledON2 to setHidden_(1)
             tell cautionText to setHidden_(1)
+            tell PortClosedLabel to setHidden_(1)
             tell PESAcaution to setHidden_(0)
             log "PESA's serial port is unavailable"
         else
@@ -414,6 +421,7 @@ script AppDelegate
                     tell PESAledON1 to setHidden_(1)
                     tell PESAledON2 to setHidden_(1)
                     tell cautionText to setHidden_(1)
+                    tell PortClosedLabel to setHidden_(1)
                     tell PESAcaution to setHidden_(0)
                     log "PESA's serial port is unavailable"
                 else
@@ -422,6 +430,7 @@ script AppDelegate
                 delay 2
                 serialport close my portPesa
                 tell PortClosedLabel to setHidden_(1)
+                tell PESAcaution to setHidden_(1)
                 tell PESAledON1 to setHidden_(1)
                 tell PESAledON2 to setHidden_(1)
                 tell PESAledOFF to setHidden_(0)
@@ -431,6 +440,17 @@ script AppDelegate
                 tell PESAledOFF to setHidden_(1)
             end if
     end pesaOffbutton_
+    
+    on openPlaylists_(sender)
+        set appURLList1 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list1", "apls")) as string)
+        set appURLList2 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list2", "apls")) as string)
+        set appURLList3 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list3", "apls")) as string)
+        set appURLList4 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list4", "apls")) as string)
+        do shell script "open " & appURLList1
+        do shell script "open " & appURLList2
+        do shell script "open " & appURLList3
+        do shell script "open " & appURLList4
+    end openPlaylists_
     
     on MakeString(theBytes)
         set thestr to ""

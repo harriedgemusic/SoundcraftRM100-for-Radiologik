@@ -59,10 +59,6 @@
 		EB09D58B1E1739C100FC9E31 /* playlists */ = {
 			isa = PBXGroup;
 			children = (
-				EB09D58C1E173A1700FC9E31 /* list1.apls */,
-				EB09D58D1E173A1700FC9E31 /* list2.apls */,
-				EB09D58E1E173A1700FC9E31 /* list3.apls */,
-				EB09D58F1E173A1700FC9E31 /* list4.apls */,
 			);
 			name = playlists;
 			sourceTree = "<group>";
@@ -70,6 +66,10 @@
 		EB395A051E142B640042D9F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB09D58C1E173A1700FC9E31 /* list1.apls */,
+				EB09D58D1E173A1700FC9E31 /* list2.apls */,
+				EB09D58E1E173A1700FC9E31 /* list3.apls */,
+				EB09D58F1E173A1700FC9E31 /* list4.apls */,
 				EB09D58B1E1739C100FC9E31 /* playlists */,
 			);
 			name = Resources;
