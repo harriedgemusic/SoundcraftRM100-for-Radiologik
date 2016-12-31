@@ -305,14 +305,14 @@ script AppDelegate
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
-            set pesaCommand1ToMSK to "H00800200200200249
-" & return
-set pesaCommand2ToMSK to "H0020080080080085;
-" & return
+            set pesaCommand1ToMSK to MakeString({72, 48, 48, 56, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 57, 10})
+            set pesaCommand2ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
             serialport write pesaCommand1ToMSK to portPesa
-            delay 1
+            delay 2
+            log pesaCommand1ToMSK
             serialport write pesaCommand2ToMSK to portPesa
-            delay 1
+            delay 2
+            log pesaCommand2ToMSK
             serialport close my portPesa
             tell PortClosedLabel to setHidden_(1)
             tell PESAledOFF to setHidden_(1)
@@ -338,12 +338,12 @@ set pesaCommand2ToMSK to "H0020080080080085;
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
-            set pesaCommand1ToMSK to "H00800600600600659" & return
-            set pesaCommand2ToMSK to "H0020080080080085;" & return
-            serialport write pesaCommand1ToMSK to portPesa
-            delay 1
-            serialport write pesaCommand2ToMSK to portPesa
-            delay 1
+            set pesaCommand3ToMSK to MakeString({72, 48, 48, 56, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 57, 10})
+            set pesaCommand4ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
+            serialport write pesaCommand3ToMSK to portPesa
+            delay 2
+            serialport write pesaCommand4ToMSK to portPesa
+            delay 2
             serialport close my portPesa
             tell PortClosedLabel to setHidden_(1)
             tell PESAledOFF to setHidden_(1)
@@ -366,14 +366,12 @@ set pesaCommand2ToMSK to "H0020080080080085;
                 tell PESAcaution to setHidden_(0)
                 log "PESA's serial port is unavailable"
             else
-            set pesaCommand1FromMSK to "H00200200200200243
-" & return
-set pesaCommand2FromMSK to "H00600200200200247
-" & return
-            serialport write pesaCommand1FromMSK to portPesa
-            delay 1
-            serialport write pesaCommand2FromMSK to portPesa
-            delay 1
+            set pesaCommand5FromMSK to MakeString({72, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 51, 10})
+            set pesaCommand6FromMSK to MakeString({72, 48, 48, 54, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 55, 10})
+            serialport write pesaCommand5FromMSK to portPesa
+            delay 2
+            serialport write pesaCommand6FromMSK to portPesa
+            delay 2
             serialport close my portPesa
             tell PortClosedLabel to setHidden_(1)
             tell PESAledON1 to setHidden_(1)
@@ -392,12 +390,12 @@ set pesaCommand2FromMSK to "H00600200200200247
             tell PESAcaution to setHidden_(0)
             log "PESA's serial port is unavailable"
         else
-        set pesaCommand1FromMSK to "H00200600600600653" & return
-        set pesaCommand2FromMSK to "H00600600600600657" & return
-        serialport write pesaCommand1FromMSK to portPesa
-        delay 1
-        serialport write pesaCommand2FromMSK to portPesa
-        delay 1
+        set pesaCommand7FromMSK to MakeString({72, 48, 48, 50, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 51, 10})
+        set pesaCommand8FromMSK to MakeString({72, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 55, 10})
+        serialport write pesaCommand7FromMSK to portPesa
+        delay 2
+        serialport write pesaCommand8FromMSK to portPesa
+        delay 2
         serialport close my portPesa
         tell PortClosedLabel to setHidden_(1)
         tell PESAledON2 to setHidden_(1)
@@ -419,10 +417,9 @@ set pesaCommand2FromMSK to "H00600200200200247
                     tell PESAcaution to setHidden_(0)
                     log "PESA's serial port is unavailable"
                 else
-                set pesaCommand3OffStream to "H00800400400400451
-" & return
-                serialport write pesaCommand3OffStream to portPesa
-                delay 1
+                set pesaCommandOffStream to MakeString({72, 48, 48, 56, 48, 48, 52, 48, 48, 52, 48, 48, 52, 48, 48, 52, 53, 49, 10})
+                serialport write pesaCommandOffStream to portPesa
+                delay 2
                 serialport close my portPesa
                 tell PortClosedLabel to setHidden_(1)
                 tell PESAledON1 to setHidden_(1)
@@ -434,6 +431,14 @@ set pesaCommand2FromMSK to "H00600200200200247
                 tell PESAledOFF to setHidden_(1)
             end if
     end pesaOffbutton_
+    
+    on MakeString(theBytes)
+        set thestr to ""
+        repeat with i from 1 to length of theBytes
+            set thestr to thestr & (ASCII character (item i of theBytes))
+        end repeat
+        return thestr
+    end MakeString
     
     on applicationShouldTerminate:sender
         -- Insert code here to do any housekeeping before your application quits
