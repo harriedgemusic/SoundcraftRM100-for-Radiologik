@@ -58,18 +58,18 @@ script AppDelegate
     on applicationWillFinishLaunching:aNotification
     end applicationWillFinishLaunching:
     
-    on AnotherScript_(sender)
-        set my TestClass to current application's TestClass's alloc()'s init()
-        try
-            set theResult to (my TestClass's activeRIC())
+#    on AnotherScript_(sender)
+#        set my TestClass to current application's TestClass's alloc()'s init()
+#        try
+#            set theResult to (my TestClass's activeRIC())
 #            display dialog (theResult as text)
-            on error
-            display dialog "Error occured"
-        end try
-    end AnotherScript_
-    
+#            on error
+#            display dialog "Error occured"
+#        end try
+#    end AnotherScript_
+
     on applicationDidFinishLaunching:aNotification
-        set portRef to serialport open "/dev/cu.usbserial" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
+        set portRef to serialport open "/dev/cu.usbserial" bps rate 19200 data bits 8 parity 0 stop bits 1 handshake 0
         if portRef is -1 then
             tell PESAledOFF to setHidden_(1)
             tell PESAledON1 to setHidden_(1)
@@ -77,7 +77,7 @@ script AppDelegate
             tell PESAcaution to setHidden_(1)
             tell cautionText to setHidden_(0)
         end if
-        set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.1,me,"doSomething1:",missing value,true)
+        set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething1:",missing value,true)
         tell PortClosedLabel to setHidden_(1)
         tell PESAcaution to setHidden_(1)
         tell labelNA1 to setHidden_(1)
@@ -297,9 +297,9 @@ script AppDelegate
                 log "PESA's serial port is unavailable"
             else
             set pesaCommand1ToMSK to MakeString({72, 48, 48, 56, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 57, 10})
-            set pesaCommand2ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
             serialport write pesaCommand1ToMSK to portPesa
             delay 1
+            set pesaCommand2ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
             serialport write pesaCommand2ToMSK to portPesa
             delay 1
             serialport close my portPesa
@@ -329,9 +329,9 @@ script AppDelegate
                 log "PESA's serial port is unavailable"
             else
             set pesaCommand3ToMSK to MakeString({72, 48, 48, 56, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 57, 10})
-            set pesaCommand4ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
             serialport write pesaCommand3ToMSK to portPesa
             delay 1
+            set pesaCommand4ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
             serialport write pesaCommand4ToMSK to portPesa
             delay 1
             serialport close my portPesa
@@ -358,9 +358,9 @@ script AppDelegate
                 log "PESA's serial port is unavailable"
             else
             set pesaCommand5FromMSK to MakeString({72, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 51, 10})
-            set pesaCommand6FromMSK to MakeString({72, 48, 48, 54, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 55, 10})
             serialport write pesaCommand5FromMSK to portPesa
             delay 1
+            set pesaCommand6FromMSK to MakeString({72, 48, 48, 54, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 55, 10})
             serialport write pesaCommand6FromMSK to portPesa
             delay 1
             serialport close my portPesa
@@ -383,9 +383,9 @@ script AppDelegate
             log "PESA's serial port is unavailable"
         else
         set pesaCommand7FromMSK to MakeString({72, 48, 48, 50, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 51, 10})
-        set pesaCommand8FromMSK to MakeString({72, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 55, 10})
         serialport write pesaCommand7FromMSK to portPesa
         delay 1
+        set pesaCommand8FromMSK to MakeString({72, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 55, 10})
         serialport write pesaCommand8FromMSK to portPesa
         delay 1
         serialport close my portPesa
