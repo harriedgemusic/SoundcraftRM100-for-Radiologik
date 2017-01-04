@@ -20,6 +20,7 @@
 		EBAD6AA21DFF0D80006F20DE /* AppDelegate.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */; };
 		EBAD6AA41DFF0D80006F20DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */; };
 		EBAD6AA71DFF0D80006F20DE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBAD6AA51DFF0D80006F20DE /* MainMenu.xib */; };
+		EBFA81EC1E1D59E000E05F69 /* TestClass.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EBFA81EB1E1D59E000E05F69 /* TestClass.applescript */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/harriedgemusic/Documents/SoundcraftRM100/SoundcraftRM100/Assets.xcassets; sourceTree = "<absolute>"; };
 		EBAD6AA61DFF0D80006F20DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		EBAD6AA81DFF0D80006F20DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBFA81EB1E1D59E000E05F69 /* TestClass.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = TestClass.applescript; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		EBAD6A9D1DFF0D80006F20DE /* SoundcraftRM100 */ = {
 			isa = PBXGroup;
 			children = (
+				EBFA81EB1E1D59E000E05F69 /* TestClass.applescript */,
 				EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */,
 				EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */,
 				EBAD6AA51DFF0D80006F20DE /* MainMenu.xib */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFA81EC1E1D59E000E05F69 /* TestClass.applescript in Sources */,
 				EBAD6AA21DFF0D80006F20DE /* AppDelegate.applescript in Sources */,
 				EBAD6AA01DFF0D80006F20DE /* main.m in Sources */,
 			);

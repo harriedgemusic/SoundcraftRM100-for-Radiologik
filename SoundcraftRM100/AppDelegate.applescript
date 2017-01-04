@@ -460,6 +460,21 @@ script AppDelegate
         return thestr
     end MakeString
     
+-- //////////
+
+on buttonTestClick_(sender)
+    set my TestClass to current application's TestClass's alloc()'s init()
+    try
+        set theResult to (my TestClass's specialFunction()) as list
+        display dialog (theResult as text)
+        on error
+        display dialog "Error occured"
+    end try
+end buttonTestClick
+
+-- //////////
+
+
     on applicationShouldTerminate:sender
         -- Insert code here to do any housekeeping before your application quits
         return current application's NSTerminateNow
