@@ -1,6 +1,7 @@
 
 script AppDelegate
     property parent : class "NSObject"
+    property TestClass : missing value
     property theWindow : missing value
     property cautionIcon : missing value
     property cautionText : missing value
@@ -55,33 +56,17 @@ script AppDelegate
     
     
     on applicationWillFinishLaunching:aNotification
-        activate
-        tell labelInactive1 to setHidden_(1)
-        tell labelInactive2 to setHidden_(1)
-        tell labelInactive3 to setHidden_(1)
-        tell labelInactive4 to setHidden_(1)
-        tell labelActive1 to setHidden_(1)
-        tell labelActive2 to setHidden_(1)
-        tell labelActive3 to setHidden_(1)
-        tell labelActive4 to setHidden_(1)
-        tell ledGreen1 to setHidden_(1)
-        tell ledGreen2 to setHidden_(1)
-        tell ledGreen3 to setHidden_(1)
-        tell ledGreen4 to setHidden_(1)
-        tell ledRed1 to setHidden_(1)
-        tell ledRed2 to setHidden_(1)
-        tell ledRed3 to setHidden_(1)
-        tell ledRed4 to setHidden_(1)
-        tell ledNone1 to setHidden_(0)
-        tell ledNone2 to setHidden_(0)
-        tell ledNone3 to setHidden_(0)
-        tell ledNone4 to setHidden_(0)
-        tell labelNA1 to setHidden_(0)
-        tell labelNA2 to setHidden_(0)
-        tell labelNA3 to setHidden_(0)
-        tell labelNA4 to setHidden_(0)
     end applicationWillFinishLaunching:
     
+    on AnotherScript_(sender)
+        set my TestClass to current application's TestClass's alloc()'s init()
+        try
+            set theResult to (my TestClass's activeRIC())
+#            display dialog (theResult as text)
+            on error
+            display dialog "Error occured"
+        end try
+    end AnotherScript_
     
     on applicationDidFinishLaunching:aNotification
         set portRef to serialport open "/dev/cu.usbserial" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
@@ -92,7 +77,7 @@ script AppDelegate
             tell PESAcaution to setHidden_(1)
             tell cautionText to setHidden_(0)
         end if
-        set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething1:",missing value,true)
+        set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.1,me,"doSomething1:",missing value,true)
         tell PortClosedLabel to setHidden_(1)
         tell PESAcaution to setHidden_(1)
         tell labelNA1 to setHidden_(1)
@@ -460,21 +445,6 @@ script AppDelegate
         return thestr
     end MakeString
     
--- //////////
-
-on buttonTestClick_(sender)
-    set my TestClass to current application's TestClass's alloc()'s init()
-    try
-        set theResult to (my TestClass's specialFunction()) as list
-        display dialog (theResult as text)
-        on error
-        display dialog "Error occured"
-    end try
-end buttonTestClick
-
--- //////////
-
-
     on applicationShouldTerminate:sender
         -- Insert code here to do any housekeeping before your application quits
         return current application's NSTerminateNow

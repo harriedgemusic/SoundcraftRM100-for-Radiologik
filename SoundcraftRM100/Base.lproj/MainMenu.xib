@@ -42,8 +42,10 @@
                 <outlet property="ledRed2" destination="th7-aM-nIX" id="6a3-76-jeu"/>
                 <outlet property="ledRed3" destination="Xfa-YL-WGj" id="cDu-Yo-8y3"/>
                 <outlet property="ledRed4" destination="Lmb-kR-PTh" id="B1L-Fy-6an"/>
+                <outlet property="theWindow" destination="Efg-tr-mdM" id="vsL-vA-tWP"/>
             </connections>
         </customObject>
+        <customObject id="Zni-iO-3D6" customClass="TestClass"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -167,7 +169,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="pesaFromMSK:" target="Voe-Tx-rLC" id="Khd-Pb-mka"/>
+                            <action selector="pesaFromMSK2:" target="Voe-Tx-rLC" id="yL2-2u-601"/>
                         </connections>
                     </button>
                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gs4-7p-fl7">
@@ -521,14 +523,6 @@
                         <connections>
                             <action selector="openPlaylists:" target="Voe-Tx-rLC" id="tC0-bw-Psh"/>
                         </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qj-F0-23T">
-                        <rect key="frame" x="284" y="133" width="81" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ET4-V0-XPq">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
                     </button>
                 </subviews>
             </view>
