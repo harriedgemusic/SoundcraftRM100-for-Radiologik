@@ -524,6 +524,15 @@
                             <action selector="openPlaylists:" target="Voe-Tx-rLC" id="tC0-bw-Psh"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-hV-fhv">
+                        <rect key="frame" x="425" y="20" width="37" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="v. 0.8" id="NaD-kD-WDO">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" red="0.5" green="0.49012927891255281" blue="0.49541580716517281" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="145" y="71.5"/>

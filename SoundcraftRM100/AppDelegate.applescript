@@ -49,6 +49,9 @@ script AppDelegate
     property ric : 0
     property ricF : 0
     property myTimer1: missing value
+    property myTimer2: missing value
+    property myTimer3: missing value
+    property myTimer4: missing value
     property portRef : 0
     property portPesa : 0
     property file1 : "SoundcraftRM100:list1.apls"
@@ -78,6 +81,9 @@ script AppDelegate
             tell cautionText to setHidden_(0)
         end if
         set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething1:",missing value,true)
+        set myTimer2 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething2:",missing value,true)
+        set myTimer3 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething3:",missing value,true)
+        set myTimer4 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething4:",missing value,true)
         tell PortClosedLabel to setHidden_(1)
         tell PESAcaution to setHidden_(1)
         tell labelNA1 to setHidden_(1)
@@ -99,36 +105,14 @@ script AppDelegate
     
     on doSomething1_(aArgument)
         set cts to serialport status my portRef line 0
-        set dcd to serialport status my portRef line 3
-        set dsr to serialport status my portRef line 4
-        set rng to serialport status my portRef line 5
-        
         if cts is -1 then
             myTimer1's invalidate()
             tell ledGreen1 to setHidden_(1)
-            tell ledGreen2 to setHidden_(1)
-            tell ledGreen3 to setHidden_(1)
-            tell ledGreen4 to setHidden_(1)
             tell ledRed1 to setHidden_(1)
-            tell ledRed2 to setHidden_(1)
-            tell ledRed3 to setHidden_(1)
-            tell ledRed4 to setHidden_(1)
             tell labelInactive1 to setHidden_(1)
-            tell labelInactive2 to setHidden_(1)
-            tell labelInactive3 to setHidden_(1)
-            tell labelInactive4 to setHidden_(1)
             tell labelActive1 to setHidden_(1)
-            tell labelActive2 to setHidden_(1)
-            tell labelActive3 to setHidden_(1)
-            tell labelActive4 to setHidden_(1)
             tell labelNA1 to setHidden_(0)
-            tell labelNA2 to setHidden_(0)
-            tell labelNA3 to setHidden_(0)
-            tell labelNA4 to setHidden_(0)
             tell ledNone1 to setHidden_(0)
-            tell ledNone2 to setHidden_(0)
-            tell ledNone3 to setHidden_(0)
-            tell ledNone4 to setHidden_(0)
         end if
         
         if cts is 1 then
@@ -136,27 +120,6 @@ script AppDelegate
         end if
         if cts is 0 then
             set cntF to cntF + 1
-        end if
-        
-        if dcd is 1 then
-            set dcdc to dcdc + 1
-        end if
-        if dcd is 0 then
-            set dcdcF to dcdcF + 1
-        end if
-        
-        if dsr is 1 then
-            set dsrc to dsrc + 1
-        end if
-        if dsr is 0 then
-            set dsrcF to dsrcF + 1
-        end if
-        
-        if rng is 1 then
-            set ric to ric + 1
-        end if
-        if rng is 0 then
-            set ricF to ricF + 1
         end if
         
         if cnt = 1 then
@@ -184,6 +147,26 @@ script AppDelegate
             else if cntF is not 1 then
             log "sucsess"
         end if
+    end doSomething1_
+    
+    on doSomething2_(aArgument)
+        set dcd to serialport status my portRef line 3
+        if dcd is -1 then
+            myTimer2's invalidate()
+            tell ledGreen2 to setHidden_(1)
+            tell ledRed2 to setHidden_(1)
+            tell labelInactive2 to setHidden_(1)
+            tell labelActive2 to setHidden_(1)
+            tell labelNA2 to setHidden_(0)
+            tell ledNone2 to setHidden_(0)
+        end if
+        
+        if dcd is 1 then
+            set dcdc to dcdc + 1
+        end if
+        if dcd is 0 then
+            set dcdcF to dcdcF + 1
+        end if
         
         if dcdc = 1 then
             tell application "System Events" to click button 4 of group 1 of window "list2.apls" of process "OnTheAir Studio"
@@ -209,6 +192,25 @@ script AppDelegate
             tell labelInactive2 to setHidden_(0)
             else if dcdcF is not 1 then
             log "sucsess"
+        end if
+    end doSomething2_
+    
+    on doSomething3_(aArgument)
+        set dsr to serialport status my portRef line 4
+        if dsr is -1 then
+            myTimer3's invalidate()
+            tell ledGreen3 to setHidden_(1)
+            tell ledRed3 to setHidden_(1)
+            tell labelInactive3 to setHidden_(1)
+            tell labelActive3 to setHidden_(1)
+            tell labelNA3 to setHidden_(0)
+            tell ledNone3 to setHidden_(0)
+        end if
+        if dsr is 1 then
+            set dsrc to dsrc + 1
+        end if
+        if dsr is 0 then
+            set dsrcF to dsrcF + 1
         end if
         
         if dsrc = 1 then
@@ -237,6 +239,28 @@ script AppDelegate
             log "sucsess"
         end if
         
+    end doSomething3_
+    
+    on doSomething4_(aArgument)
+        set rng to serialport status my portRef line 5
+        
+        if rng is -1 then
+            myTimer4's invalidate()
+            tell ledGreen4 to setHidden_(1)
+            tell ledRed4 to setHidden_(1)
+            tell labelInactive4 to setHidden_(1)
+            tell labelActive4 to setHidden_(1)
+            tell labelNA4 to setHidden_(0)
+            tell ledNone4 to setHidden_(0)
+        end if
+        
+        if rng is 1 then
+            set ric to ric + 1
+        end if
+        if rng is 0 then
+            set ricF to ricF + 1
+        end if
+        
         if ric = 1 then
             tell application "System Events" to click button 4 of group 1 of window "list4.apls" of process "OnTheAir Studio"
             set ricF to 0
@@ -262,15 +286,13 @@ script AppDelegate
             else if ricF is not 1 then
             log "sucsess"
         end if
-        log cts & dcd & dsr & rng
         
-    end doSomething1_
+    end doSomething4_
 
     on portOff_(sender)
         if portRef is -1 then
             tell PESAcaution to setHidden_(1)
             tell cautionText to setHidden_(0)
-            
         else
         serialport close my portRef
         tell PESAcaution to setHidden_(1)
