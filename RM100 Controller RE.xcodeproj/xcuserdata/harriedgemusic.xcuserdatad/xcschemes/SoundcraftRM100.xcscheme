@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EBAD6A971DFF0D80006F20DE"
-               BuildableName = "RM100 Controller.app"
-               BlueprintName = "RM100 Controller"
-               ReferencedContainer = "container:RM100 Controller.xcodeproj">
+               BuildableName = "RM100 Controller RE.app"
+               BlueprintName = "RM100 Controller RE"
+               ReferencedContainer = "container:RM100 Controller RE.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBAD6A971DFF0D80006F20DE"
-            BuildableName = "RM100 Controller.app"
-            BlueprintName = "RM100 Controller"
-            ReferencedContainer = "container:RM100 Controller.xcodeproj">
+            BuildableName = "RM100 Controller RE.app"
+            BlueprintName = "RM100 Controller RE"
+            ReferencedContainer = "container:RM100 Controller RE.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBAD6A971DFF0D80006F20DE"
-            BuildableName = "RM100 Controller.app"
-            BlueprintName = "RM100 Controller"
-            ReferencedContainer = "container:RM100 Controller.xcodeproj">
+            BuildableName = "RM100 Controller RE.app"
+            BlueprintName = "RM100 Controller RE"
+            ReferencedContainer = "container:RM100 Controller RE.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBAD6A971DFF0D80006F20DE"
-            BuildableName = "RM100 Controller.app"
-            BlueprintName = "RM100 Controller"
-            ReferencedContainer = "container:RM100 Controller.xcodeproj">
+            BuildableName = "RM100 Controller RE.app"
+            BlueprintName = "RM100 Controller RE"
+            ReferencedContainer = "container:RM100 Controller RE.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

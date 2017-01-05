@@ -90,6 +90,10 @@ script AppDelegate
         tell labelNA2 to setHidden_(1)
         tell labelNA3 to setHidden_(1)
         tell labelNA4 to setHidden_(1)
+        tell ledNone1 to setHidden_(1)
+        tell ledNone2 to setHidden_(1)
+        tell ledNone3 to setHidden_(1)
+        tell ledNone4 to setHidden_(1)
         tell labelInactive1 to setHidden_(0)
         tell labelInactive2 to setHidden_(0)
         tell labelInactive3 to setHidden_(0)
@@ -122,30 +126,22 @@ script AppDelegate
             set cntF to cntF + 1
         end if
         
-        if cnt = 1 then
+        if cnt is 1 then
             tell application "System Events" to click button 4 of group 1 of window "list1.apls" of process "OnTheAir Studio"
             set cntF to 0
-            tell ledNone1 to setHidden_(1)
             tell ledRed1 to setHidden_(1)
             tell labelInactive1 to setHidden_(1)
-            tell labelNA1 to setHidden_(1)
             tell ledGreen1 to setHidden_(0)
             tell labelActive1 to setHidden_(0)
-            else if cnt is not 1 then
-            log "sucsess"
         end if
         
-        if cntF = 1 then
+        if cntF is 1 then
             tell application "System Events" to click button 2 of group 1 of window "list1.apls" of process "OnTheAir Studio"
             set cnt to 0
-            tell ledNone1 to setHidden_(1)
             tell ledGreen1 to setHidden_(1)
             tell labelActive1 to setHidden_(1)
-            tell labelNA1 to setHidden_(1)
             tell ledRed1 to setHidden_(0)
             tell labelInactive1 to setHidden_(0)
-            else if cntF is not 1 then
-            log "sucsess"
         end if
     end doSomething1_
     
@@ -168,30 +164,22 @@ script AppDelegate
             set dcdcF to dcdcF + 1
         end if
         
-        if dcdc = 1 then
+        if dcdc is 1 then
             tell application "System Events" to click button 4 of group 1 of window "list2.apls" of process "OnTheAir Studio"
             set dcdcF to 0
-            tell ledNone2 to setHidden_(1)
             tell ledRed2 to setHidden_(1)
             tell labelInactive2 to setHidden_(1)
-            tell labelNA2 to setHidden_(1)
             tell labelActive2 to setHidden_(0)
             tell ledGreen2 to setHidden_(0)
-            else if dcdc is not 1 then
-            log "sucsess"
         end if
         
-        if dcdcF = 1 then
+        if dcdcF is 1 then
             tell application "System Events" to click button 2 of group 1 of window "list2.apls" of process "OnTheAir Studio"
             set dcdc to 0
-            tell ledNone2 to setHidden_(1)
             tell ledGreen2 to setHidden_(1)
             tell labelActive2 to setHidden_(1)
-            tell labelNA2 to setHidden_(1)
             tell ledRed2 to setHidden_(0)
             tell labelInactive2 to setHidden_(0)
-            else if dcdcF is not 1 then
-            log "sucsess"
         end if
     end doSomething2_
     
@@ -213,30 +201,22 @@ script AppDelegate
             set dsrcF to dsrcF + 1
         end if
         
-        if dsrc = 1 then
+        if dsrc is 1 then
             tell application "System Events" to click button 4 of group 1 of window "list3.apls" of process "OnTheAir Studio"
             set dsrcF to 0
-            tell ledNone3 to setHidden_(1)
             tell ledRed3 to setHidden_(1)
             tell labelInactive3 to setHidden_(1)
-            tell labelNA3 to setHidden_(1)
             tell labelActive3 to setHidden_(0)
             tell ledGreen3 to setHidden_(0)
-            else if dsrc is not 1 then
-            log "sucsess"
         end if
         
-        if dsrcF = 1 then
+        if dsrcF is 1 then
             tell application "System Events" to click button 2 of group 1 of window "list3.apls" of process "OnTheAir Studio"
             set dsrc to 0
-            tell ledNone3 to setHidden_(1)
             tell ledGreen3 to setHidden_(1)
             tell labelActive3 to setHidden_(1)
-            tell labelNA3 to setHidden_(1)
             tell ledRed3 to setHidden_(0)
             tell labelInactive3 to setHidden_(0)
-            else if dsrcF is not 1 then
-            log "sucsess"
         end if
         
     end doSomething3_
@@ -261,30 +241,22 @@ script AppDelegate
             set ricF to ricF + 1
         end if
         
-        if ric = 1 then
+        if ric is 1 then
             tell application "System Events" to click button 4 of group 1 of window "list4.apls" of process "OnTheAir Studio"
             set ricF to 0
-            tell ledNone4 to setHidden_(1)
             tell ledRed4 to setHidden_(1)
             tell labelInactive4 to setHidden_(1)
-            tell labelNA4 to setHidden_(1)
             tell labelActive4 to setHidden_(0)
             tell ledGreen4 to setHidden_(0)
-            else if ric is not 1 then
-            log "sucsess"
         end if
         
-        if ricF = 1 then
+        if ricF is 1 then
             tell application "System Events" to click button 2 of group 1 of window "list4.apls" of process "OnTheAir Studio"
             set ric to 0
-            tell ledNone4 to setHidden_(1)
             tell ledGreen4 to setHidden_(1)
             tell labelActive4 to setHidden_(1)
-            tell labelNA4 to setHidden_(1)
             tell labelInactive4 to setHidden_(0)
             tell ledRed4 to setHidden_(0)
-            else if ricF is not 1 then
-            log "sucsess"
         end if
         
     end doSomething4_
@@ -319,11 +291,10 @@ script AppDelegate
                 log "PESA's serial port is unavailable"
             else
             set pesaCommand1ToMSK to MakeString({72, 48, 48, 56, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 57, 10})
-            serialport write pesaCommand1ToMSK to portPesa
-            delay 1
             set pesaCommand2ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
-            serialport write pesaCommand2ToMSK to portPesa
             delay 1
+            serialport write pesaCommand1ToMSK to portPesa
+            serialport write pesaCommand2ToMSK to portPesa
             serialport close my portPesa
             tell PortClosedLabel to setHidden_(1)
             tell PESAledOFF to setHidden_(1)
@@ -351,11 +322,10 @@ script AppDelegate
                 log "PESA's serial port is unavailable"
             else
             set pesaCommand3ToMSK to MakeString({72, 48, 48, 56, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 57, 10})
-            serialport write pesaCommand3ToMSK to portPesa
-            delay 1
             set pesaCommand4ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
-            serialport write pesaCommand4ToMSK to portPesa
             delay 1
+            serialport write pesaCommand3ToMSK to portPesa
+            serialport write pesaCommand4ToMSK to portPesa
             serialport close my portPesa
             tell PortClosedLabel to setHidden_(1)
             tell PESAledOFF to setHidden_(1)
@@ -380,11 +350,10 @@ script AppDelegate
                 log "PESA's serial port is unavailable"
             else
             set pesaCommand5FromMSK to MakeString({72, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 51, 10})
-            serialport write pesaCommand5FromMSK to portPesa
-            delay 1
             set pesaCommand6FromMSK to MakeString({72, 48, 48, 54, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 55, 10})
-            serialport write pesaCommand6FromMSK to portPesa
             delay 1
+            serialport write pesaCommand5FromMSK to portPesa
+            serialport write pesaCommand6FromMSK to portPesa
             serialport close my portPesa
             tell PortClosedLabel to setHidden_(1)
             tell PESAledON1 to setHidden_(1)
@@ -405,11 +374,10 @@ script AppDelegate
             log "PESA's serial port is unavailable"
         else
         set pesaCommand7FromMSK to MakeString({72, 48, 48, 50, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 51, 10})
-        serialport write pesaCommand7FromMSK to portPesa
-        delay 1
         set pesaCommand8FromMSK to MakeString({72, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 55, 10})
-        serialport write pesaCommand8FromMSK to portPesa
         delay 1
+        serialport write pesaCommand7FromMSK to portPesa
+        serialport write pesaCommand8FromMSK to portPesa
         serialport close my portPesa
         tell PortClosedLabel to setHidden_(1)
         tell PESAledON2 to setHidden_(1)

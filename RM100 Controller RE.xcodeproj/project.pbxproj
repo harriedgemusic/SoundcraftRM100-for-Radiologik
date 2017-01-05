@@ -32,7 +32,7 @@
 		EBA144A51E09BB6200449564 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		EBA144A71E09BB6E00449564 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EBA144A91E09BB7B00449564 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		EBAD6A981DFF0D80006F20DE /* RM100 Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM100 Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBAD6A981DFF0D80006F20DE /* RM100 Controller RE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM100 Controller RE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAD6A9B1DFF0D80006F20DE /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		EBAD6A9F1DFF0D80006F20DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = AppDelegate.applescript; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		EBAD6A991DFF0D80006F20DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBAD6A981DFF0D80006F20DE /* RM100 Controller.app */,
+				EBAD6A981DFF0D80006F20DE /* RM100 Controller RE.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,9 +147,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EBAD6A971DFF0D80006F20DE /* RM100 Controller */ = {
+		EBAD6A971DFF0D80006F20DE /* RM100 Controller RE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBAD6AAB1DFF0D80006F20DE /* Build configuration list for PBXNativeTarget "RM100 Controller" */;
+			buildConfigurationList = EBAD6AAB1DFF0D80006F20DE /* Build configuration list for PBXNativeTarget "RM100 Controller RE" */;
 			buildPhases = (
 				EBAD6A941DFF0D80006F20DE /* Sources */,
 				EBAD6A951DFF0D80006F20DE /* Frameworks */,
@@ -159,9 +159,9 @@
 			);
 			dependencies = (
 			);
-			name = "RM100 Controller";
+			name = "RM100 Controller RE";
 			productName = SoundcraftRM100;
-			productReference = EBAD6A981DFF0D80006F20DE /* RM100 Controller.app */;
+			productReference = EBAD6A981DFF0D80006F20DE /* RM100 Controller RE.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +179,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EBAD6A931DFF0D80006F20DE /* Build configuration list for PBXProject "RM100 Controller" */;
+			buildConfigurationList = EBAD6A931DFF0D80006F20DE /* Build configuration list for PBXProject "RM100 Controller RE" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -192,7 +192,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EBAD6A971DFF0D80006F20DE /* RM100 Controller */,
+				EBAD6A971DFF0D80006F20DE /* RM100 Controller RE */,
 			);
 		};
 /* End PBXProject section */
@@ -336,7 +336,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SoundcraftRM100/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = harriedgestudio.SoundcraftRM100;
+				PRODUCT_BUNDLE_IDENTIFIER = harriedgestudio.SoundcraftRM100RE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYMROOT = /Users/harriedgemusic/Desktop;
 			};
@@ -349,7 +349,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SoundcraftRM100/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = harriedgestudio.SoundcraftRM100;
+				PRODUCT_BUNDLE_IDENTIFIER = harriedgestudio.SoundcraftRM100RE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYMROOT = /Users/harriedgemusic/Desktop;
 			};
@@ -358,7 +358,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EBAD6A931DFF0D80006F20DE /* Build configuration list for PBXProject "RM100 Controller" */ = {
+		EBAD6A931DFF0D80006F20DE /* Build configuration list for PBXProject "RM100 Controller RE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBAD6AA91DFF0D80006F20DE /* Debug */,
@@ -367,7 +367,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBAD6AAB1DFF0D80006F20DE /* Build configuration list for PBXNativeTarget "RM100 Controller" */ = {
+		EBAD6AAB1DFF0D80006F20DE /* Build configuration list for PBXNativeTarget "RM100 Controller RE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBAD6AAC1DFF0D80006F20DE /* Debug */,
