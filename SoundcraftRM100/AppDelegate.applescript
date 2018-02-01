@@ -1,6 +1,11 @@
+use framework "Foundation"
+use scripting additions
 
+global PESAledOFF, PESAledON2, PESAledON1, PESAcaution, PortClosedLabel, PESAcontroller, pesaOffButtonHandler, AppDelegate
 script AppDelegate
+    
     property parent : class "NSObject"
+    property name : "AppDelegate"
     property TestClass : missing value
     property theWindow : missing value
     property cautionIcon : missing value
@@ -48,77 +53,91 @@ script AppDelegate
     property dsrcF : 0
     property ric : 0
     property ricF : 0
-    property myTimer1: missing value
-    property myTimer2: missing value
-    property myTimer3: missing value
-    property myTimer4: missing value
+    property myTimer1 : missing value
+    property myTimer2 : missing value
+    property myTimer3 : missing value
+    property myTimer4 : missing value
     property portRef : 0
     property portPesa : 0
     property file1 : "SoundcraftRM100:list1.apls"
-
-    
+    property myPESAcontroller : missing value
     
     on applicationWillFinishLaunching:aNotification
+        set my myPESAcontroller to current application's PESAcontroller's alloc()'s itit()
+        my myPESAcontroller's method()
     end applicationWillFinishLaunching:
     
-#    on AnotherScript_(sender)
-#        set my TestClass to current application's TestClass's alloc()'s init()
-#        try
-#            set theResult to (my TestClass's activeRIC())
-#            display dialog (theResult as text)
-#            on error
-#            display dialog "Error occured"
-#        end try
-#    end AnotherScript_
-
+    #    on AnotherScript_(sender)
+    #        set my TestClass to current application's TestClass's alloc()'s init()
+    #        try
+    #            set theResult to (my TestClass's activeRIC())
+    #            display dialog (theResult as text)
+    #            on error
+    #            display dialog "Error occured"
+    #        end try
+    #    end AnotherScript_
+    
+    # ==== INITIALIZATION
+    
     on applicationDidFinishLaunching:aNotification
+        # open serial port
         set portRef to serialport open "/dev/cu.usbserial" bps rate 19200 data bits 8 parity 0 stop bits 1 handshake 0
+        
+        # if serial port disconnected then set LED to RED
         if portRef is -1 then
-            tell PESAledOFF to setHidden_(1)
-            tell PESAledON1 to setHidden_(1)
-            tell PESAledON2 to setHidden_(1)
-            tell PESAcaution to setHidden_(1)
-            tell cautionText to setHidden_(0)
+            tell PESAledOFF to setHidden:1
+            tell PESAledON1 to setHidden:1
+            tell PESAledON2 to setHidden:1
+            tell PESAcaution to setHidden:1
+            tell cautionText to setHidden:0
         end if
-        set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething1:",missing value,true)
-        set myTimer2 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething2:",missing value,true)
-        set myTimer3 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething3:",missing value,true)
-        set myTimer4 to current application's NSTimer's scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(0.01,me,"doSomething4:",missing value,true)
-        tell PortClosedLabel to setHidden_(1)
-        tell PESAcaution to setHidden_(1)
-        tell labelNA1 to setHidden_(1)
-        tell labelNA2 to setHidden_(1)
-        tell labelNA3 to setHidden_(1)
-        tell labelNA4 to setHidden_(1)
-        tell ledNone1 to setHidden_(1)
-        tell ledNone2 to setHidden_(1)
-        tell ledNone3 to setHidden_(1)
-        tell ledNone4 to setHidden_(1)
-        tell labelInactive1 to setHidden_(0)
-        tell labelInactive2 to setHidden_(0)
-        tell labelInactive3 to setHidden_(0)
-        tell labelInactive4 to setHidden_(0)
-        tell ledRed1 to setHidden_(0)
-        tell ledRed2 to setHidden_(0)
-        tell ledRed3 to setHidden_(0)
-        tell ledRed4 to setHidden_(0)
+        
+        # setting fader's timers
+        set myTimer1 to current application's NSTimer's scheduledTimerWithTimeInterval:0.01 target:me selector:"doSomething1:" userInfo:(missing value) repeats:true
+        set myTimer2 to current application's NSTimer's scheduledTimerWithTimeInterval:0.01 target:me selector:"doSomething2:" userInfo:(missing value) repeats:true
+        set myTimer3 to current application's NSTimer's scheduledTimerWithTimeInterval:0.01 target:me selector:"doSomething3:" userInfo:(missing value) repeats:true
+        
+        # setting init values
+        tell PortClosedLabel to setHidden:1
+        tell PESAcaution to setHidden:1
+        tell labelNA1 to setHidden:1
+        tell labelNA2 to setHidden:1
+        tell labelNA3 to setHidden:1
+        tell labelNA4 to setHidden:1
+        tell ledNone1 to setHidden:1
+        tell ledNone2 to setHidden:1
+        tell ledNone3 to setHidden:1
+        tell ledNone4 to setHidden:1
+        tell labelInactive1 to setHidden:0
+        tell labelInactive2 to setHidden:0
+        tell labelInactive3 to setHidden:0
+        tell labelInactive4 to setHidden:0
+        tell ledRed1 to setHidden:0
+        tell ledRed2 to setHidden:0
+        tell ledRed3 to setHidden:0
+        tell ledRed4 to setHidden:0
         log "The timers are starting."
         return
     end applicationDidFinishLaunching:
-        
     
-    on doSomething1_(aArgument)
+    # run timer of CTS
+    
+    on doSomething1:aArgument
+        
+        # get cts status
         set cts to serialport status my portRef line 0
+        
         if cts is -1 then
             myTimer1's invalidate()
-            tell ledGreen1 to setHidden_(1)
-            tell ledRed1 to setHidden_(1)
-            tell labelInactive1 to setHidden_(1)
-            tell labelActive1 to setHidden_(1)
-            tell labelNA1 to setHidden_(0)
-            tell ledNone1 to setHidden_(0)
+            tell ledGreen1 to setHidden:1
+            tell ledRed1 to setHidden:1
+            tell labelInactive1 to setHidden:1
+            tell labelActive1 to setHidden:1
+            tell labelNA1 to setHidden:0
+            tell ledNone1 to setHidden:0
         end if
         
+        # check cts
         if cts is 1 then
             set cnt to cnt + 1
         end if
@@ -127,35 +146,43 @@ script AppDelegate
         end if
         
         if cnt is 1 then
-            tell application "System Events" to click button 4 of group 1 of window "list1.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 6 of window 1 of process "Radiologik DJ"
             set cntF to 0
-            tell ledRed1 to setHidden_(1)
-            tell labelInactive1 to setHidden_(1)
-            tell ledGreen1 to setHidden_(0)
-            tell labelActive1 to setHidden_(0)
+            tell ledRed1 to setHidden:1
+            tell labelInactive1 to setHidden:1
+            tell ledGreen1 to setHidden:0
+            tell labelActive1 to setHidden:0
         end if
         
         if cntF is 1 then
-            tell application "System Events" to click button 2 of group 1 of window "list1.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 5 of window 1 of process "Radiologik DJ"
             set cnt to 0
-            tell ledGreen1 to setHidden_(1)
-            tell labelActive1 to setHidden_(1)
-            tell ledRed1 to setHidden_(0)
-            tell labelInactive1 to setHidden_(0)
+            tell ledGreen1 to setHidden:1
+            tell labelActive1 to setHidden:1
+            tell ledRed1 to setHidden:0
+            tell labelInactive1 to setHidden:0
         end if
-    end doSomething1_
+    end doSomething1:
     
-    on doSomething2_(aArgument)
+    # run timer of DCD
+    
+    on doSomething2:aArgument
+        
+         # get dcd status
+         
         set dcd to serialport status my portRef line 3
+        
         if dcd is -1 then
             myTimer2's invalidate()
-            tell ledGreen2 to setHidden_(1)
-            tell ledRed2 to setHidden_(1)
-            tell labelInactive2 to setHidden_(1)
-            tell labelActive2 to setHidden_(1)
-            tell labelNA2 to setHidden_(0)
-            tell ledNone2 to setHidden_(0)
+            tell ledGreen2 to setHidden:1
+            tell ledRed2 to setHidden:1
+            tell labelInactive2 to setHidden:1
+            tell labelActive2 to setHidden:1
+            tell labelNA2 to setHidden:0
+            tell ledNone2 to setHidden:0
         end if
+        
+        # check dcd
         
         if dcd is 1 then
             set dcdc to dcdc + 1
@@ -165,35 +192,40 @@ script AppDelegate
         end if
         
         if dcdc is 1 then
-            tell application "System Events" to click button 4 of group 1 of window "list2.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 13 of window 1 of process "Radiologik DJ"
             set dcdcF to 0
-            tell ledRed2 to setHidden_(1)
-            tell labelInactive2 to setHidden_(1)
-            tell labelActive2 to setHidden_(0)
-            tell ledGreen2 to setHidden_(0)
+            tell ledRed2 to setHidden:1
+            tell labelInactive2 to setHidden:1
+            tell labelActive2 to setHidden:0
+            tell ledGreen2 to setHidden:0
         end if
         
         if dcdcF is 1 then
-            tell application "System Events" to click button 2 of group 1 of window "list2.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 12 of window 1 of process "Radiologik DJ"
             set dcdc to 0
-            tell ledGreen2 to setHidden_(1)
-            tell labelActive2 to setHidden_(1)
-            tell ledRed2 to setHidden_(0)
-            tell labelInactive2 to setHidden_(0)
+            tell ledGreen2 to setHidden:1
+            tell labelActive2 to setHidden:1
+            tell ledRed2 to setHidden:0
+            tell labelInactive2 to setHidden:0
         end if
-    end doSomething2_
+    end doSomething2:
     
-    on doSomething3_(aArgument)
+    # run timer of DSR
+    
+    on doSomething3:aArgument
         set dsr to serialport status my portRef line 4
         if dsr is -1 then
             myTimer3's invalidate()
-            tell ledGreen3 to setHidden_(1)
-            tell ledRed3 to setHidden_(1)
-            tell labelInactive3 to setHidden_(1)
-            tell labelActive3 to setHidden_(1)
-            tell labelNA3 to setHidden_(0)
-            tell ledNone3 to setHidden_(0)
+            tell ledGreen3 to setHidden:1
+            tell ledRed3 to setHidden:1
+            tell labelInactive3 to setHidden:1
+            tell labelActive3 to setHidden:1
+            tell labelNA3 to setHidden:0
+            tell ledNone3 to setHidden:0
         end if
+        
+        # check dsr
+        
         if dsr is 1 then
             set dsrc to dsrc + 1
         end if
@@ -202,238 +234,72 @@ script AppDelegate
         end if
         
         if dsrc is 1 then
-            tell application "System Events" to click button 4 of group 1 of window "list3.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 10 of window 1 of process "Radiologik DJ"
             set dsrcF to 0
-            tell ledRed3 to setHidden_(1)
-            tell labelInactive3 to setHidden_(1)
-            tell labelActive3 to setHidden_(0)
-            tell ledGreen3 to setHidden_(0)
+            tell ledRed3 to setHidden:1
+            tell labelInactive3 to setHidden:1
+            tell labelActive3 to setHidden:0
+            tell ledGreen3 to setHidden:0
         end if
         
         if dsrcF is 1 then
-            tell application "System Events" to click button 2 of group 1 of window "list3.apls" of process "OnTheAir Studio"
+            tell application "System Events" to click button 9 of window 1 of process "Radiologik DJ"
             set dsrc to 0
-            tell ledGreen3 to setHidden_(1)
-            tell labelActive3 to setHidden_(1)
-            tell ledRed3 to setHidden_(0)
-            tell labelInactive3 to setHidden_(0)
+            tell ledGreen3 to setHidden:1
+            tell labelActive3 to setHidden:1
+            tell ledRed3 to setHidden:0
+            tell labelInactive3 to setHidden:0
         end if
         
-    end doSomething3_
+    end doSomething3:
     
-    on doSomething4_(aArgument)
-        set rng to serialport status my portRef line 5
-        
-        if rng is -1 then
-            myTimer4's invalidate()
-            tell ledGreen4 to setHidden_(1)
-            tell ledRed4 to setHidden_(1)
-            tell labelInactive4 to setHidden_(1)
-            tell labelActive4 to setHidden_(1)
-            tell labelNA4 to setHidden_(0)
-            tell ledNone4 to setHidden_(0)
-        end if
-        
-        if rng is 1 then
-            set ric to ric + 1
-        end if
-        if rng is 0 then
-            set ricF to ricF + 1
-        end if
-        
-        if ric is 1 then
-            tell application "System Events" to click button 4 of group 1 of window "list4.apls" of process "OnTheAir Studio"
-            set ricF to 0
-            tell ledRed4 to setHidden_(1)
-            tell labelInactive4 to setHidden_(1)
-            tell labelActive4 to setHidden_(0)
-            tell ledGreen4 to setHidden_(0)
-        end if
-        
-        if ricF is 1 then
-            tell application "System Events" to click button 2 of group 1 of window "list4.apls" of process "OnTheAir Studio"
-            set ric to 0
-            tell ledGreen4 to setHidden_(1)
-            tell labelActive4 to setHidden_(1)
-            tell labelInactive4 to setHidden_(0)
-            tell ledRed4 to setHidden_(0)
-        end if
-        
-    end doSomething4_
+    # SERIAL PORT CLOSER
 
-    on portOff_(sender)
+    on portOff:sender
         if portRef is -1 then
-            tell PESAcaution to setHidden_(1)
-            tell cautionText to setHidden_(0)
-        else
-        serialport close my portRef
-        tell PESAcaution to setHidden_(1)
-        tell PESAledOFF to setHidden_(1)
-        tell PESAledON1 to setHidden_(1)
-        tell PESAledON2 to setHidden_(1)
-        tell cautionText to setHidden_(1)
-        tell PortClosedLabel to setHidden_(0)
-        end if
-    end portOff_
-    
-    on pesaToMSK_(sender)
-        display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 2
-        set x to button returned of result
-        if x is "YES" then
-            set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
-            if portPesa is -1 then
-                tell PESAledOFF to setHidden_(1)
-                tell PESAledON1 to setHidden_(1)
-                tell PESAledON2 to setHidden_(1)
-                tell cautionText to setHidden_(1)
-                tell PortClosedLabel to setHidden_(1)
-                tell PESAcaution to setHidden_(0)
-                log "PESA's serial port is unavailable"
+            tell PESAcaution to setHidden:1
+            tell cautionText to setHidden:1
+             tell PESAledOFF to setHidden:1
+            log "PESA's serial port is unavailable (port closer)"
             else
-            set pesaCommand1ToMSK to MakeString({72, 48, 48, 56, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 57, 10})
-            set pesaCommand2ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
-            delay 1
-            serialport write pesaCommand1ToMSK to portPesa
-            serialport write pesaCommand2ToMSK to portPesa
-            serialport close my portPesa
-            tell PortClosedLabel to setHidden_(1)
-            tell PESAledOFF to setHidden_(1)
-            tell PESAledON2 to setHidden_(1)
-            tell PESAledON1 to setHidden_(0)
-            end if
+            serialport close my portRef
+            tell PESAcaution to setHidden:1
+            tell PESAledOFF to setHidden:1
+            tell PESAledON1 to setHidden:1
+            tell PESAledON2 to setHidden:1
+            tell cautionText to setHidden:1
+            tell PortClosedLabel to setHidden:0
+            log "PESA's serial port is CLOSED(port closer)"
         end if
-        if x is "NO" then
-            log x
-        end if
-    end pesaToMSK_
+    end portOff:
     
-    on pesaToMSK2_(sender)
-        display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 2
-        set x to button returned of result
-        if x is "YES" then
-            set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
-            if portPesa is -1 then
-                tell PESAledOFF to setHidden_(1)
-                tell PESAledON1 to setHidden_(1)
-                tell PESAledON2 to setHidden_(1)
-                tell cautionText to setHidden_(1)
-                tell PortClosedLabel to setHidden_(1)
-                tell PESAcaution to setHidden_(0)
-                log "PESA's serial port is unavailable"
-            else
-            set pesaCommand3ToMSK to MakeString({72, 48, 48, 56, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 57, 10})
-            set pesaCommand4ToMSK to MakeString({72, 48, 48, 50, 48, 48, 56, 48, 48, 56, 48, 48, 56, 48, 48, 56, 53, 59, 10})
-            delay 1
-            serialport write pesaCommand3ToMSK to portPesa
-            serialport write pesaCommand4ToMSK to portPesa
-            serialport close my portPesa
-            tell PortClosedLabel to setHidden_(1)
-            tell PESAledOFF to setHidden_(1)
-            tell PESAledON1 to setHidden_(1)
-            tell PESAledON2 to setHidden_(0)
-            end if
-        end if
-        if x is "NO" then
-            log x
-        end if
-    end pesaToMSK2_
+    # PESA SWITCH to MSK
+    on pesaToMSK:sender
+        current application's pesaSwithToMskHandler's pesaSwToMsk:PESAledOFF pesaSwToMsk:PESAledON1 pesaSwToMsk:PESAledON2 pesaSwToMsk:cautionText pesaSwToMsk:PortClosedLabel pesaSwToMsk:PESAcaution
+    end pesaToMSK:
     
-    on pesaFromMSK_(sender)
-            set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
-            if portPesa is -1 then
-                tell PESAledOFF to setHidden_(1)
-                tell PESAledON1 to setHidden_(1)
-                tell PESAledON2 to setHidden_(1)
-                tell cautionText to setHidden_(1)
-                tell PortClosedLabel to setHidden_(1)
-                tell PESAcaution to setHidden_(0)
-                log "PESA's serial port is unavailable"
-            else
-            set pesaCommand5FromMSK to MakeString({72, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 51, 10})
-            set pesaCommand6FromMSK to MakeString({72, 48, 48, 54, 48, 48, 50, 48, 48, 50, 48, 48, 50, 48, 48, 50, 52, 55, 10})
-            delay 1
-            serialport write pesaCommand5FromMSK to portPesa
-            serialport write pesaCommand6FromMSK to portPesa
-            serialport close my portPesa
-            tell PortClosedLabel to setHidden_(1)
-            tell PESAledON1 to setHidden_(1)
-            tell PESAledON2 to setHidden_(1)
-            tell PESAledOFF to setHidden_(0)
-            end if
-    end pesaFromMSK_
+    # PESA SWITCH to MSK (RESERVED SATELLITE)
+    on pesaToMSK2:sender
+        current application's pesaSwithToMskRHandler's pesaSwToMsk2:PESAledOFF pesaSwToMsk2:PESAledON1 pesaSwToMsk2:PESAledON2 pesaSwToMsk2:cautionText pesaSwToMsk2:PortClosedLabel pesaSwToMsk2:PESAcaution
+    end pesaToMSK2:
     
-    on pesaFromMSK2_(sender)
-        set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
-        if portPesa is -1 then
-            tell PESAledOFF to setHidden_(1)
-            tell PESAledON1 to setHidden_(1)
-            tell PESAledON2 to setHidden_(1)
-            tell cautionText to setHidden_(1)
-            tell PortClosedLabel to setHidden_(1)
-            tell PESAcaution to setHidden_(0)
-            log "PESA's serial port is unavailable"
-        else
-        set pesaCommand7FromMSK to MakeString({72, 48, 48, 50, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 51, 10})
-        set pesaCommand8FromMSK to MakeString({72, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 48, 48, 54, 53, 55, 10})
-        delay 1
-        serialport write pesaCommand7FromMSK to portPesa
-        serialport write pesaCommand8FromMSK to portPesa
-        serialport close my portPesa
-        tell PortClosedLabel to setHidden_(1)
-        tell PESAledON2 to setHidden_(1)
-        tell PESAledON1 to setHidden_(1)
-        tell PESAledOFF to setHidden_(0)
-        end if
-    end pesaFromMSK2_
+    # PESA SWITCH FROM MSK TO MIXER
     
-    on pesaOffbutton_(sender)
-            display dialog "MSK's fader is ON?" buttons {"YES", "NO"} default button 1
-            set x to button returned of result
-            if x is "YES" then
-                set portPesa to serialport open "/dev/cu.serial1" bps rate 9600 data bits 8 parity 0 stop bits 1 handshake 0
-                if portPesa is -1 then
-                    tell PESAledOFF to setHidden_(1)
-                    tell PESAledON1 to setHidden_(1)
-                    tell PESAledON2 to setHidden_(1)
-                    tell cautionText to setHidden_(1)
-                    tell PortClosedLabel to setHidden_(1)
-                    tell PESAcaution to setHidden_(0)
-                    log "PESA's serial port is unavailable"
-                else
-                set pesaCommandOffStream to MakeString({72, 48, 48, 56, 48, 48, 52, 48, 48, 52, 48, 48, 52, 48, 48, 52, 53, 49, 10})
-                serialport write pesaCommandOffStream to portPesa
-                delay 1
-                serialport close my portPesa
-                tell PortClosedLabel to setHidden_(1)
-                tell PESAcaution to setHidden_(1)
-                tell PESAledON1 to setHidden_(1)
-                tell PESAledON2 to setHidden_(1)
-                tell PESAledOFF to setHidden_(0)
-                end if
-            end if
-            if x is "NO" then
-                tell PESAledOFF to setHidden_(1)
-            end if
-    end pesaOffbutton_
+    on pesaFromMSK:sender
+        current application's pesaSwithFromMskHandler's pesaSwFromMsk:PESAledOFF pesaSwFromMsk:PESAledON1 pesaSwFromMsk:PESAledON2 pesaSwFromMsk:cautionText pesaSwFromMsk:PortClosedLabel pesaSwFromMsk:PESAcaution
+    end pesaFromMSK:
     
-    on openPlaylists_(sender)
-        set appURLList1 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list1", "apls")) as string)
-        set appURLList2 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list2", "apls")) as string)
-        set appURLList3 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list3", "apls")) as string)
-        set appURLList4 to quoted form of ((current application's NSBundle's mainBundle()'s pathForResource_ofType_("list4", "apls")) as string)
-        do shell script "open " & appURLList1
-        do shell script "open " & appURLList2
-        do shell script "open " & appURLList3
-        do shell script "open " & appURLList4
-    end openPlaylists_
+    # PESA SWITCH FROM MSK TO MIXER (FROM RESERVED SATELLITE)
     
-    on MakeString(theBytes)
-        set thestr to ""
-        repeat with i from 1 to length of theBytes
-            set thestr to thestr & (ASCII character (item i of theBytes))
-        end repeat
-        return thestr
-    end MakeString
+    on pesaFromMSK2:sender
+        current application's pesaSwithFromMskRHandler's pesaSwFromMsk2:PESAledOFF pesaSwFromMsk2:PESAledON1 pesaSwFromMsk2:PESAledON2 pesaSwFromMsk2:cautionText pesaSwFromMsk2:PortClosedLabel pesaSwFromMsk2:PESAcaution
+    end pesaFromMSK2:
+    
+  # Handler of button "PESA OFF"
+  
+    on pesaOffbutton:sender
+        current application's pesaOffButtonHandler's pesaOff:PESAledOFF pesaOff:PESAledON1 pesaOff:PESAledON2 pesaOff:cautionText pesaOff:PortClosedLabel pesaOff:PESAcaution
+    end pesaOffbutton:
     
     on applicationShouldTerminate:sender
         -- Insert code here to do any housekeeping before your application quits

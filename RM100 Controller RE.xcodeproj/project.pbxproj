@@ -7,38 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB09D5901E173A1800FC9E31 /* list1.apls in Resources */ = {isa = PBXBuildFile; fileRef = EB09D58C1E173A1700FC9E31 /* list1.apls */; };
-		EB09D5911E173A1800FC9E31 /* list2.apls in Resources */ = {isa = PBXBuildFile; fileRef = EB09D58D1E173A1700FC9E31 /* list2.apls */; };
-		EB09D5921E173A1800FC9E31 /* list3.apls in Resources */ = {isa = PBXBuildFile; fileRef = EB09D58E1E173A1700FC9E31 /* list3.apls */; };
-		EB09D5931E173A1800FC9E31 /* list4.apls in Resources */ = {isa = PBXBuildFile; fileRef = EB09D58F1E173A1700FC9E31 /* list4.apls */; };
+		EB37E76920231C6A003B451D /* pesaSwithToMskHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76820231C6A003B451D /* pesaSwithToMskHandler.applescript */; };
+		EB37E76B20232042003B451D /* pesaSwithToMskRHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76A20232042003B451D /* pesaSwithToMskRHandler.applescript */; };
+		EB37E76D2023222C003B451D /* pesaSwithFromMskHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76C2023222C003B451D /* pesaSwithFromMskHandler.applescript */; };
+		EB37E76F202323A5003B451D /* pesaSwithFromMskRHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76E202323A5003B451D /* pesaSwithFromMskRHandler.applescript */; };
 		EBA144A21E09BADD00449564 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA144A11E09BADD00449564 /* Cocoa.framework */; };
 		EBA144A61E09BB6200449564 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA144A51E09BB6200449564 /* AppKit.framework */; };
 		EBA144A81E09BB6E00449564 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA144A71E09BB6E00449564 /* CoreData.framework */; };
 		EBA144AA1E09BB7B00449564 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA144A91E09BB7B00449564 /* Foundation.framework */; };
+		EBACB8522022860300DE4C45 /* PESAcontroller.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EBACB8502022860300DE4C45 /* PESAcontroller.applescript */; };
 		EBAD6A9C1DFF0D80006F20DE /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAD6A9B1DFF0D80006F20DE /* AppleScriptObjC.framework */; };
 		EBAD6AA01DFF0D80006F20DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAD6A9F1DFF0D80006F20DE /* main.m */; };
 		EBAD6AA21DFF0D80006F20DE /* AppDelegate.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */; };
 		EBAD6AA41DFF0D80006F20DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */; };
 		EBAD6AA71DFF0D80006F20DE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBAD6AA51DFF0D80006F20DE /* MainMenu.xib */; };
+		EBE8ACB02022D4680018C4DD /* pesaOffButtonHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EBE8ACAF2022D4680018C4DD /* pesaOffButtonHandler.applescript */; };
 		EBFA81EC1E1D59E000E05F69 /* TestClass.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EBFA81EB1E1D59E000E05F69 /* TestClass.applescript */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB09D58C1E173A1700FC9E31 /* list1.apls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = list1.apls; path = SoundcraftRM100/list1.apls; sourceTree = "<group>"; };
-		EB09D58D1E173A1700FC9E31 /* list2.apls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = list2.apls; path = SoundcraftRM100/list2.apls; sourceTree = "<group>"; };
-		EB09D58E1E173A1700FC9E31 /* list3.apls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = list3.apls; path = SoundcraftRM100/list3.apls; sourceTree = "<group>"; };
-		EB09D58F1E173A1700FC9E31 /* list4.apls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = list4.apls; path = SoundcraftRM100/list4.apls; sourceTree = "<group>"; };
+		EB37E76820231C6A003B451D /* pesaSwithToMskHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithToMskHandler.applescript; path = ../../../Desktop/pesaSwithToMskHandler.applescript; sourceTree = "<group>"; };
+		EB37E76A20232042003B451D /* pesaSwithToMskRHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithToMskRHandler.applescript; path = ../../../Desktop/pesaSwithToMskRHandler.applescript; sourceTree = "<group>"; };
+		EB37E76C2023222C003B451D /* pesaSwithFromMskHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithFromMskHandler.applescript; path = ../../../Desktop/pesaSwithFromMskHandler.applescript; sourceTree = "<group>"; };
+		EB37E76E202323A5003B451D /* pesaSwithFromMskRHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithFromMskRHandler.applescript; path = ../../../Desktop/pesaSwithFromMskRHandler.applescript; sourceTree = "<group>"; };
 		EBA144A11E09BADD00449564 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EBA144A51E09BB6200449564 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		EBA144A71E09BB6E00449564 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EBA144A91E09BB7B00449564 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EBACB8502022860300DE4C45 /* PESAcontroller.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = PESAcontroller.applescript; path = "../../../../Users/harriedgemusic/Documents/DEV/SoundcraftRM100 for Radiologik/SoundcraftRM100/PESAcontroller.applescript"; sourceTree = DEVELOPER_DIR; };
 		EBAD6A981DFF0D80006F20DE /* RM100 Controller RE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM100 Controller RE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAD6A9B1DFF0D80006F20DE /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		EBAD6A9F1DFF0D80006F20DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = AppDelegate.applescript; sourceTree = "<group>"; };
-		EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/harriedgemusic/Documents/SoundcraftRM100/SoundcraftRM100/Assets.xcassets; sourceTree = "<absolute>"; };
+		EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../SoundcraftRM100/SoundcraftRM100/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		EBAD6AA61DFF0D80006F20DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		EBAD6AA81DFF0D80006F20DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBE8ACAF2022D4680018C4DD /* pesaOffButtonHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaOffButtonHandler.applescript; path = ../../../Desktop/pesaOffButtonHandler.applescript; sourceTree = SOURCE_ROOT; };
 		EBFA81EB1E1D59E000E05F69 /* TestClass.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = TestClass.applescript; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,21 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB09D58B1E1739C100FC9E31 /* playlists */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = playlists;
-			sourceTree = "<group>";
-		};
 		EB395A051E142B640042D9F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EB09D58C1E173A1700FC9E31 /* list1.apls */,
-				EB09D58D1E173A1700FC9E31 /* list2.apls */,
-				EB09D58E1E173A1700FC9E31 /* list3.apls */,
-				EB09D58F1E173A1700FC9E31 /* list4.apls */,
-				EB09D58B1E1739C100FC9E31 /* playlists */,
+				EBE8ACAF2022D4680018C4DD /* pesaOffButtonHandler.applescript */,
+				EB37E76C2023222C003B451D /* pesaSwithFromMskHandler.applescript */,
+				EB37E76820231C6A003B451D /* pesaSwithToMskHandler.applescript */,
+				EB37E76E202323A5003B451D /* pesaSwithFromMskRHandler.applescript */,
+				EB37E76A20232042003B451D /* pesaSwithToMskRHandler.applescript */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -128,6 +125,7 @@
 			children = (
 				EBFA81EB1E1D59E000E05F69 /* TestClass.applescript */,
 				EBAD6AA11DFF0D80006F20DE /* AppDelegate.applescript */,
+				EBACB8502022860300DE4C45 /* PESAcontroller.applescript */,
 				EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */,
 				EBAD6AA51DFF0D80006F20DE /* MainMenu.xib */,
 				EBAD6AA81DFF0D80006F20DE /* Info.plist */,
@@ -170,7 +168,7 @@
 		EBAD6A901DFF0D80006F20DE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Thomas O'Harriedge";
 				TargetAttributes = {
 					EBAD6A971DFF0D80006F20DE = {
@@ -202,11 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB09D5921E173A1800FC9E31 /* list3.apls in Resources */,
 				EBAD6AA41DFF0D80006F20DE /* Assets.xcassets in Resources */,
-				EB09D5901E173A1800FC9E31 /* list1.apls in Resources */,
-				EB09D5911E173A1800FC9E31 /* list2.apls in Resources */,
-				EB09D5931E173A1800FC9E31 /* list4.apls in Resources */,
 				EBAD6AA71DFF0D80006F20DE /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,9 +212,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB37E76920231C6A003B451D /* pesaSwithToMskHandler.applescript in Sources */,
+				EBACB8522022860300DE4C45 /* PESAcontroller.applescript in Sources */,
+				EB37E76F202323A5003B451D /* pesaSwithFromMskRHandler.applescript in Sources */,
 				EBFA81EC1E1D59E000E05F69 /* TestClass.applescript in Sources */,
+				EB37E76B20232042003B451D /* pesaSwithToMskRHandler.applescript in Sources */,
 				EBAD6AA21DFF0D80006F20DE /* AppDelegate.applescript in Sources */,
+				EB37E76D2023222C003B451D /* pesaSwithFromMskHandler.applescript in Sources */,
 				EBAD6AA01DFF0D80006F20DE /* main.m in Sources */,
+				EBE8ACB02022D4680018C4DD /* pesaOffButtonHandler.applescript in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +247,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -255,7 +257,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -296,7 +302,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -304,7 +312,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
