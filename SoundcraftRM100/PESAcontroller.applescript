@@ -1,0 +1,1 @@
+script PESAcontrolleruse framework "Foundation"	use scripting additionsglobal PESAledOFF, PESAledON2, PESAledON1, PESAcaution, PortClosedLabel, PESAcontroller, AppDelegate, OtherScript	property parent : class "NSObject"		on init()		continue init()		return me	end init		on method()        log "portOFF is called"			end method	end script

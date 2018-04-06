@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		EB37E76920231C6A003B451D /* pesaSwithToMskHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76820231C6A003B451D /* pesaSwithToMskHandler.applescript */; };
 		EB37E76B20232042003B451D /* pesaSwithToMskRHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76A20232042003B451D /* pesaSwithToMskRHandler.applescript */; };
-		EB37E76D2023222C003B451D /* pesaSwithFromMskHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76C2023222C003B451D /* pesaSwithFromMskHandler.applescript */; };
-		EB37E76F202323A5003B451D /* pesaSwithFromMskRHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76E202323A5003B451D /* pesaSwithFromMskRHandler.applescript */; };
+		EB37E76D2023222C003B451D /* pesaSwithFromMskRHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76C2023222C003B451D /* pesaSwithFromMskRHandler.applescript */; };
+		EB37E76F202323A5003B451D /* pesaSwithFromMskHandler.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EB37E76E202323A5003B451D /* pesaSwithFromMskHandler.applescript */; };
 		EBA144A21E09BADD00449564 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA144A11E09BADD00449564 /* Cocoa.framework */; };
 		EBA144A61E09BB6200449564 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA144A51E09BB6200449564 /* AppKit.framework */; };
 		EBA144A81E09BB6E00449564 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA144A71E09BB6E00449564 /* CoreData.framework */; };
@@ -26,10 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB37E76820231C6A003B451D /* pesaSwithToMskHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithToMskHandler.applescript; path = ../../../Desktop/pesaSwithToMskHandler.applescript; sourceTree = "<group>"; };
-		EB37E76A20232042003B451D /* pesaSwithToMskRHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithToMskRHandler.applescript; path = ../../../Desktop/pesaSwithToMskRHandler.applescript; sourceTree = "<group>"; };
-		EB37E76C2023222C003B451D /* pesaSwithFromMskHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithFromMskHandler.applescript; path = ../../../Desktop/pesaSwithFromMskHandler.applescript; sourceTree = "<group>"; };
-		EB37E76E202323A5003B451D /* pesaSwithFromMskRHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithFromMskRHandler.applescript; path = ../../../Desktop/pesaSwithFromMskRHandler.applescript; sourceTree = "<group>"; };
+		EB37E76820231C6A003B451D /* pesaSwithToMskHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = pesaSwithToMskHandler.applescript; sourceTree = "<group>"; };
+		EB37E76A20232042003B451D /* pesaSwithToMskRHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = pesaSwithToMskRHandler.applescript; sourceTree = "<group>"; };
+		EB37E76C2023222C003B451D /* pesaSwithFromMskRHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaSwithFromMskRHandler.applescript; path = SoundcraftRM100/Resources/pesaSwithFromMskRHandler.applescript; sourceTree = SOURCE_ROOT; };
+		EB37E76E202323A5003B451D /* pesaSwithFromMskHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = pesaSwithFromMskHandler.applescript; sourceTree = "<group>"; };
 		EBA144A11E09BADD00449564 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EBA144A51E09BB6200449564 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		EBA144A71E09BB6E00449564 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -42,7 +42,7 @@
 		EBAD6AA31DFF0D80006F20DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../SoundcraftRM100/SoundcraftRM100/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		EBAD6AA61DFF0D80006F20DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		EBAD6AA81DFF0D80006F20DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBE8ACAF2022D4680018C4DD /* pesaOffButtonHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = pesaOffButtonHandler.applescript; path = ../../../Desktop/pesaOffButtonHandler.applescript; sourceTree = SOURCE_ROOT; };
+		EBE8ACAF2022D4680018C4DD /* pesaOffButtonHandler.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = pesaOffButtonHandler.applescript; sourceTree = "<group>"; };
 		EBFA81EB1E1D59E000E05F69 /* TestClass.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = TestClass.applescript; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,12 +66,13 @@
 			isa = PBXGroup;
 			children = (
 				EBE8ACAF2022D4680018C4DD /* pesaOffButtonHandler.applescript */,
-				EB37E76C2023222C003B451D /* pesaSwithFromMskHandler.applescript */,
+				EB37E76C2023222C003B451D /* pesaSwithFromMskRHandler.applescript */,
 				EB37E76820231C6A003B451D /* pesaSwithToMskHandler.applescript */,
-				EB37E76E202323A5003B451D /* pesaSwithFromMskRHandler.applescript */,
+				EB37E76E202323A5003B451D /* pesaSwithFromMskHandler.applescript */,
 				EB37E76A20232042003B451D /* pesaSwithToMskRHandler.applescript */,
 			);
 			name = Resources;
+			path = SoundcraftRM100/Resources;
 			sourceTree = "<group>";
 		};
 		EBA144A31E09BAF000449564 /* Linked Frameworks */ = {
@@ -214,11 +215,11 @@
 			files = (
 				EB37E76920231C6A003B451D /* pesaSwithToMskHandler.applescript in Sources */,
 				EBACB8522022860300DE4C45 /* PESAcontroller.applescript in Sources */,
-				EB37E76F202323A5003B451D /* pesaSwithFromMskRHandler.applescript in Sources */,
+				EB37E76F202323A5003B451D /* pesaSwithFromMskHandler.applescript in Sources */,
 				EBFA81EC1E1D59E000E05F69 /* TestClass.applescript in Sources */,
 				EB37E76B20232042003B451D /* pesaSwithToMskRHandler.applescript in Sources */,
 				EBAD6AA21DFF0D80006F20DE /* AppDelegate.applescript in Sources */,
-				EB37E76D2023222C003B451D /* pesaSwithFromMskHandler.applescript in Sources */,
+				EB37E76D2023222C003B451D /* pesaSwithFromMskRHandler.applescript in Sources */,
 				EBAD6AA01DFF0D80006F20DE /* main.m in Sources */,
 				EBE8ACB02022D4680018C4DD /* pesaOffButtonHandler.applescript in Sources */,
 			);
